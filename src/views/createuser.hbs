@@ -1,0 +1,30 @@
+<form action="createUserForm" method="post">
+    <label for="firstName">Nome:</label>
+    <input value="{{result.firstName}}" type="text" name="firstName" id="firstName"><br>
+    <label for="lastName">Sobrenome:</label>
+    <input value="{{result.lastName}}" type="text" name="lastName" id="lastName"><br>
+    <label for="email">Email:</label>
+    <input value="{{result.mail}}" type="email" name="email" id="email"><br>
+    <p style="display: block;" id="templateEmail"></p>
+    <label for="password">Senha:</label>
+    <input value="{{result.password}}" type="password" name="password" id="password"><br>
+    <p style="display: {{result.number}}; color: red;">Não contem número</p>
+    <p style="display: {{result.UpperCase}}; color: red;">Não contem letra maíscula</p>
+    <p style="display: {{result.LowerCase}}; color: red;">Não contem letra minuscula</p>
+    <p style="display: {{result.EightChar}}; color: red;">Não contem 8 caracteres minimo</p>
+    <label for="confirmPassword">Repita a senha:</label>
+    <input value="{{result.confirmPassword}}" type="password" name="confirmPassword" id="confirmPassword"><br>
+    <p style="display: {{result.verify}}; color: red;">Não está identica</p>
+    <label for="cpf">CPF:</label>
+    <input value="{{result.cpf}}" type="text" name="cpf" id="cpf"><br>
+    <p style="display: block;" id="templateSenha"></p>
+    <label for="nascimento">Data de nascimento:</label>
+    <input value="{{result.nascimento}}" type="date" name="nascimento" id="nascimento"><br>
+    <br>
+    {{!-- <button type="button" onclick="test()">Enviar</button> --}}
+    <button type="submit">Enviar</button>
+</form>
+<div>
+    <h1>{{msg}}</h1>
+</div>
+<script src="/script/script.js"></script>
