@@ -11,7 +11,8 @@ const router: Router = Router()
 // const createUserService = new CreateUserService
 const createUser = new CreateUser
 //Routes
-router.get("/", firstController.createUser);
+router.get("/", firstController.loginUser);
+router.get("/create", firstController.createUser);
 
 router.post('/createUserForm', (req: Request, res: Response) => {
     createUser.save(req,res)
