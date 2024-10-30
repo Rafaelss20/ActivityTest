@@ -6,8 +6,7 @@
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/index.ts",
     "start": "npm run build && node dist/index.js",
     "build": "tsc",
-    "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
