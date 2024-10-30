@@ -1,9 +1,12 @@
-import type {Config} from '@jest/types'
+import type {JestConfigWithTsJest } from 'ts-jest'
 
-const config: Config.InitialOptions={
+const config: JestConfigWithTsJest ={
     preset: 'ts-jest',
     testEnvironment: "node",
-    verbose: true
+    collectCoverage: true,
+    verbose: true,
+    coverageDirectory: 'coverage',
+    coverageProvider: 'v8'
 }
 
 export default config
