@@ -3,7 +3,6 @@ import { resCreateUser } from "../routers/model/ResModelCreateUser";
 
 class FirstController {
   public createUser(req: Request, res: Response) {
-    let result = new resCreateUser()
     return res.render("createuser")
   }
   public loginUser(req: Request, res: Response){
