@@ -1,5 +1,8 @@
 import { App } from "./app"
+import dotenv from "dotenv"
 
-new App().getServer().listen(8082, () => {
-    console.log('http://localhost:8082');
+dotenv.config()
+const host = process.env.HOST || 3000
+new App().getServer().listen(host, () => {
+    console.log(`http://localhost:${host}`);
 })
