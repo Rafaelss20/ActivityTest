@@ -4,7 +4,6 @@ import { Request, Response } from "express";
 
 import { bag } from "./database/model/carBuy";
 import { CreateUser } from "./routers/signupRouter";
-import { product } from "./database/model/product";
 import { getproducts } from "./database/products";
 
 
@@ -21,7 +20,7 @@ router.get("/carbuy", (req: Request, res: Response) => {
 });
 router.get("/home", (req: Request, res: Response) => {
   const products = getproducts()
-  res.render("home", { post: products})
+  res.render("home", { products: products })
 });
 
 router.post('/createUserForm', (req: Request, res: Response) => {

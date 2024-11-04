@@ -1,5 +1,5 @@
-import { db } from "../db";
-import { Sequelize } from "sequelize";
+// import { db } from "../db";
+// import { Sequelize } from "sequelize";
 
 export class monthyUser {
     private firstName: string;

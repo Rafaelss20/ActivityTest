@@ -1,60 +1,10 @@
-import { MongoClient } from 'mongodb'
 import dotenv from "dotenv"
-import { monthyUser } from './model/User';
-import { Sequelize } from 'sequelize';
+import { Sequelize } from "sequelize";
+import { getproducts } from './products';
 
 dotenv.config()
 
-export const db = new Sequelize( 'activityTeste', 'root', 'root', {
-    host:"localhost",
-    dialect: 'mysql',
-    port: 3306
-});
-
-db.authenticate()
-.then(function(){
-    console.log("Conectado")})
-.catch(function(){
-    console.log("Não conectado")
-});
-
-const usersdatabe = db.define('users', {
-    firstName: {
-        type: Sequelize.STRING
-    },
-    lastName: {
-        type: Sequelize.STRING
-    },
-    email: {
-        type: Sequelize.STRING
-    },
-    password: {
-        type: Sequelize.STRING
-    },
-    userActivity: {
-        type: Sequelize.BOOLEAN
-    },
-    userBlock: {
-        type: Sequelize.BOOLEAN
-    },
-    tryPassword: {
-        type: Sequelize.INTEGER
-    },
-    cpf: {
-        type: Sequelize.STRING
-    },
-    nascimento: {
-        type: Sequelize.STRING
-    },
-    dateCreate: {
-        type: Sequelize.STRING
-    }
-})
-
-usersdatabe.sync({force:true})
 // let singleton: any;
-
-
 // export async function connectDataBase() {
 //     //Função para não requistar todo momento, deixando o serviço lento
 //     if(singleton){
@@ -68,7 +18,6 @@ usersdatabe.sync({force:true})
 
 //     singleton = client.db(process.env.MONGO_DATABASE)
 //     console.log('banco conectado');
-    
 //     return await singleton
 // }
 
@@ -76,5 +25,29 @@ usersdatabe.sync({force:true})
 //     const db = await connectDataBase();
 //     // db.collection("users").Schema()
 //     return db.collection("users").insertOne(customer)
-
 // }
+// export async function insertProducts(params:any) {
+//     const db = await connectDataBase();
+//     return db.collection("products").insertMany(params)
+// }
+
+// export async function findProducts(value:any) {
+//     const db = await connectDataBase();
+//     if (value === null) {
+//         return db.collection('products').find().toArray();
+//     }
+//     return db.collection('products').find({ name: value }).toArray();
+// }
+const sequelize = new Sequelize('activityTest', 'root', 'root', {
+    host:"localhost",
+    dialect: 'mysql',
+    port: 3306
+});
+
+sequelize.authenticate()
+.then(function(){
+    console.log("Conectado")})
+.catch(function(){
+    console.log("Não conectado")
+});
+export {sequelize, Sequelize}
