@@ -14,49 +14,35 @@ export class CreateUser {
   async save(req: Request, res: Response) {
     const { firstName, lastName, email, password, cpf, nascimento, confirmPassword } = req.body
     let isPassword: boolean = true
-    let result = new resCreateUser(firstName,lastName,email,password,cpf,nascimento,confirmPassword)
+    let result: any = new resCreateUser(firstName,lastName,email,password,cpf,nascimento,confirmPassword)
     if (!hasNumber(password)) {
-      result.number = 'block';
+      result.number = '• Não contem número!';
       isPassword = false
     }
     if (!hasLowerCase(password)) {
-      result.LowerCase = 'block'
+      result.LowerCase = '• Não contem letra minuscula!'
       isPassword = false
     }
     if (!hasUpperCase(password)) {
-      result.UpperCase = 'block'
+      result.UpperCase = '• Não contem letra maíscula!'
       isPassword = false
     }
     if (!hasEightChar(password)) {
-      result.EightChar = 'block'
+      result.EightChar = '• Não contem 8 caractéres!'
       isPassword = false
     }
     if (!veriftPassword(password, confirmPassword)) {
-      result.verify = 'block'
+      result.verify = '• Senha não são identicas!'
       isPassword = false
     }
     if (isPassword) {
       const user = new monthyUser(firstName, lastName, email, password, cpf, nascimento)
       console.log(user);
       await insert(user)
-      res.render('createuser', { msg: 'Cadastrado com sucesso' })
+      return res.render("signup",{msg: 'Cadastrado com sucesso'})
     } else {
-      res.render('createuser', { result: result })
+      return res.render('signup', { result: result })
     }
-    // if (password === confirmPassword) {
-    //   return res.addListener('close',()=>{
-    //     'teste'
-    //   })
-    // }
-    // const user = new monthyUser(firstName, lastName, email, password, cpf, nascimento)
-    // console.log(user);
-    // await insert(user)
-    // res.send('sucess')
-    //   const div = document.createElement('div')
-    //   div.innerHTML = '<h1>Enviado com Sucesso</h1>'
-    //   // setInterval(()=>{
-    //   //   div.remove()
-    //   // }, 5* 1000)
   }
 }
 

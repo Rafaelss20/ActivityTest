@@ -31,10 +31,10 @@ export class resCreateUser {
         this.cpf=cpf? cpf: '';
         this.nascimento=nascimento? nascimento: new Date() ;
         this.confirmPassword=confirmPassword? confirmPassword: '';
-        this.LowerCase=LowerCase? LowerCase: 'none';
-        this.UpperCase=UpperCase? UpperCase: 'none';
-        this.EightChar=EightChar? EightChar: 'none';
-        this.verify=verify? verify: 'none';
-        this.number=number? number: 'none';
+        this.LowerCase=LowerCase? LowerCase: '';
+        this.UpperCase=UpperCase? UpperCase: '';
+        this.EightChar=EightChar? EightChar: '';
+        this.verify=verify? verify: '';
+        this.number=number? number: '';
     }
 }

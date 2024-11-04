@@ -5,16 +5,15 @@
     <input value="{{result.lastName}}" type="text" name="lastName" id="lastName"><br>
     <label for="email">Email:</label><br>
     <input value="{{result.mail}}" type="email" name="email" id="email"><br>
-    <p style="display: block;" id="templateEmail"></p>
     <label for="password">Senha:</label><br>
     <input value="{{result.password}}" type="password" name="password" id="password"><br>
-    <p style="display: {{result.number}}; color: red;">Não contem número</p>
-    <p style="display: {{result.UpperCase}}; color: red;">Não contem letra maíscula</p>
-    <p style="display: {{result.LowerCase}}; color: red;">Não contem letra minuscula</p>
-    <p style="display: {{result.EightChar}}; color: red;">Não contem 8 caracteres minimo</p>
+    <li style="color: red;">{{result.number}}</li>
+    <li style="color: red;">{{result.UpperCase}}</li>
+    <li style="color: red;">{{result.LowerCase}}</li>
+    <li style="color: red;">{{result.EightChar}}</li>
     <label for="confirmPassword">Repita a senha:</label><br>
     <input value="{{result.confirmPassword}}" type="password" name="confirmPassword" id="confirmPassword"><br>
-    <p style="display: {{result.verify}}; color: red;">Não está identica</p>
+    <li style="color: red;">{{result.verify}}</li>
     <label for="cpf">CPF:</label><br>
     <input value="{{result.cpf}}" type="text" name="cpf" id="cpf"><br>
     <p style="display: block;" id="templateSenha"></p>
@@ -26,4 +25,3 @@
 <div>
     <h1>{{msg}}</h1>
 </div>
-<script src="/script/script.js"></script>
