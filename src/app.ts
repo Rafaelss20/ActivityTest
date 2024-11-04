@@ -1,9 +1,9 @@
-import express from 'express'
+import express, { Request, Response, NextFunction} from 'express'
 import { router } from './router'
 import bodyParser from 'body-parser';
 import path from 'path';
 import { engine } from 'express-handlebars';
-
+import session from "express-session";
 export class App {
     private server: express.Application = express();
 
@@ -14,7 +14,8 @@ export class App {
         this.urlencoded();
         this.middleware();
         this.router();
-
+        // this.session();
+        // this.checkloggid();
     }
     private layout() {
         this.server.engine('hbs', engine({
@@ -27,6 +28,22 @@ export class App {
         this.server.set('view engine', 'hbs')
         this.server.set('views', __dirname + '/views')
     }
+    // private session() {
+    //     this.server.use(session({
+    //         secret: 'secret-key',
+    //         resave: false,
+    //         saveUninitialized: false,
+    //         cookie: { maxAge: 1 * 60 * 1000 } // 10 min 
+    //     }));
+    // }
+    // session.isLoggedIn: boolean
+    // private checkloggid() {
+    //     const sessionAllowPath = ["", "/", "/login","/create"]
+    //     this.server.use('/*', (req: Request, res: Response, next: NextFunction) => {
+    //         if (sessionAllowPath.indexOf(req.baseUrl) === -1 && !req.session.isLoggedIn) return res.redirect("/#errorSession");
+    //         next()
+    //     });
+    // }
     private static() {
         this.server.use(express.static(path.join(__dirname, "assets")))
     }
@@ -40,7 +57,7 @@ export class App {
         this.server.use(router);
     }
     public getServer(): express.Application {
-        
+
         return this.server
     }
 }

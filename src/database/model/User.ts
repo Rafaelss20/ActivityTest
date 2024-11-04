@@ -1,3 +1,6 @@
+import { db } from "../db";
+import { Sequelize } from "sequelize";
+
 export class monthyUser {
     private firstName: string;
     private lastName: string;
@@ -22,7 +25,41 @@ export class monthyUser {
         this.password = password;
         this.dateCreate = new Date()
     }
-    static create(firstName: string, lastName: string, email: string, password: string, cpf: string, nascimento: Date): monthyUser{
-        return new monthyUser(firstName,lastName,email,password,cpf,nascimento)
+    static create(firstName: string, lastName: string, email: string, password: string, cpf: string, nascimento: Date): monthyUser {
+        return new monthyUser(firstName, lastName, email, password, cpf, nascimento)
     }
 }
+const users = db.define('users', {
+    firstName: {
+        type: Sequelize.strin
+    },
+    lastName: {
+        type: Sequelize.string
+    },
+    email: {
+        type: Sequelize.string
+    },
+    password: {
+        type: Sequelize.string
+    },
+    userActivity: {
+        type: Sequelize.boolean
+    },
+    userBlock: {
+        type: Sequelize.boolean
+    },
+    tryPassword: {
+        type: Sequelize.number
+    },
+    cpf: {
+        type: Sequelize.string
+    },
+    nascimento: {
+        type: Sequelize.Date
+    },
+    dateCreate: {
+        type: Sequelize.Date
+    }
+})
+
+users.sync({force:true})

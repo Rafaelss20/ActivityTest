@@ -1,10 +1,11 @@
 import { Router } from "express";
 import { firstController } from "./controller/FirstController";
 import { Request, Response } from "express";
-import { CreateUser } from "./routers/createUser";
+
 import { bag } from "./database/model/carBuy";
-
-
+import { CreateUser } from "./routers/signupRouter";
+import { product } from "./database/model/product";
+import { getproducts } from "./database/products";
 
 
 const router: Router = Router()
@@ -16,12 +17,15 @@ router.get("/", firstController.loginUser);
 router.get("/create", firstController.createUser);
 router.get("/carbuy", (req: Request, res: Response) => {
     console.log(bag);
-    
     res.render('carbuy', {itens: bag})
+});
+router.get("/home", (req: Request, res: Response) => {
+  const products = getproducts()
+  res.render("home", { post: products})
 });
 
 router.post('/createUserForm', (req: Request, res: Response) => {
-    createUser.save(req, res)
+  createUser.save(req, res)
 })
 
 export { router };

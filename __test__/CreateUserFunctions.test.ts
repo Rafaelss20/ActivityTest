@@ -32,10 +32,10 @@ describe("Testing function hasUpperCase", () => {
 
 describe ("Testing function hasLowerCase", () => {
     it("Check if password has lower case", () => {
-        expect(hasLowerCase('abc')).toBe(false)
+        expect(hasLowerCase('abc')).toBe(true)
     })
     it("Check if password has lower case", () => {
-        expect(hasLowerCase("Abc")).toBe(false)
+        expect(hasLowerCase("Abc")).toBe(true)
     })
     it("Check if password has lower case", () => {
         expect(hasLowerCase("ABC")).toBe(false)

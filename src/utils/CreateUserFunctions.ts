@@ -7,13 +7,13 @@ function veriftPassword(password: string, passwordConfirmation: string): boolean
 function hasNumber(password: string): boolean {
     return /\d/.test(password)
 }
-//Verificar se a senha contém letra maíscula
+//Verificar se a senha contém letra maiúscula
 function hasUpperCase(password: string): boolean {
-    return /\[A-Z]/.test(password)
+    return /[A-Z]/.test(password)
 }
 //Verificar se a senha contém letra minuscula
 function hasLowerCase(password: string): boolean {
-    return /\[a-z]/.test(password)
+    return /[a-z]/.test(password)
 }
 //Verificar se a senha contém nó mínimo 8 caracter.
 function hasEightChar(password: string): boolean {
