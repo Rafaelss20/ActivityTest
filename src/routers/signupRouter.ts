@@ -38,7 +38,7 @@ export class CreateUser {
     if (isPassword) {
       const user = new monthyUser(firstName, lastName, email, password, cpf, nascimento)
       console.log(user);
-      await insert(user)
+      await insert(user);
       return res.render("signup",{msg: 'Cadastrado com sucesso'})
     } else {
       return res.render('signup', { result: result })

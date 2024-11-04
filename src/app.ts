@@ -14,7 +14,7 @@ export class App {
         this.urlencoded();
         this.middleware();
         this.router();
-        this.session();
+        // this.session();
         // this.checkloggid();
     }
     private layout() {
@@ -28,14 +28,14 @@ export class App {
         this.server.set('view engine', 'hbs')
         this.server.set('views', __dirname + '/views')
     }
-    private session() {
-        this.server.use(session({
-            secret: 'secret-key',
-            resave: false,
-            saveUninitialized: false,
-            cookie: { maxAge: 1 * 60 * 1000 } // 10 min 
-        }));
-    }
+    // private session() {
+    //     this.server.use(session({
+    //         secret: 'secret-key',
+    //         resave: false,
+    //         saveUninitialized: false,
+    //         cookie: { maxAge: 1 * 60 * 1000 } // 10 min 
+    //     }));
+    // }
     // session.isLoggedIn: boolean
     // private checkloggid() {
     //     const sessionAllowPath = ["", "/", "/login","/create"]

@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { resCreateUser } from "../routers/model/ResModelCreateUser";
+import { getproducts } from "../database/products";
+
 
 class FirstController {
   public createUser(req: Request, res: Response) {
@@ -9,7 +10,8 @@ class FirstController {
     return res.render("login")
   }
   public homer(req: Request, res: Response){
-    return res.render("home")
+    const products =  getproducts()
+    return res.render("home", { post: products})
   }
 }
 
