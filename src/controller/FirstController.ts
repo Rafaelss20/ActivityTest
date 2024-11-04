@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
+import { bag } from "../database/model/carBuy";
 import { getproducts } from "../database/products";
-
 
 class FirstController {
   public createUser(req: Request, res: Response) {
@@ -8,6 +8,9 @@ class FirstController {
   }
   public loginUser(req: Request, res: Response){
     return res.render("login")
+  }
+  public carbuy(req: Request, res: Response){
+    return res.render("carbuy", {itens: bag})
   }
   public homer(req: Request, res: Response){
     const products =  getproducts()
