@@ -7,7 +7,7 @@ function veriftPassword(password: string, passwordConfirmation: string): boolean
 function hasNumber(password: string): boolean {
     return /\d/.test(password)
 }
-//Verificar se a senha contém letra maíscula
+//Verificar se a senha contém letra maiúscula
 function hasUpperCase(password: string): boolean {
     return /[A-Z]/.test(password)
 }
