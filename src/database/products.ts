@@ -18,8 +18,6 @@ export function getproducts(){
         { id: "HEADFONEGAMER", value: 180,img: "HEADFONEGAMER.png", name: "HeadPhone Gamer", description: "HeadPhone Gamer - Orelhas de Gato - 2 Saídas P2" },
         { id: "HEADFONEQUANTION", value: 480,img: "HEADFONEQUANTION.png", name: "HeadPhone Quantion JBL", description: "HeadPhone Quantion JBL - Função Microfone - Volume interno" }
     ]
-    // insertMany("Products", products);
-    // const result = findAll("Products")
     return products
 }
 

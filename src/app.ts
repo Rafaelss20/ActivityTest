@@ -3,9 +3,7 @@ import { router } from './router'
 import bodyParser from 'body-parser';
 import path from 'path';
 import { engine } from 'express-handlebars';
-import session from "express-session";
-import { insertProducts } from './database/db';
-import { getproducts } from './database/products';
+// import { insertProducts } from './database/db';
 export class App {
     private server: express.Application = express();
 
@@ -31,10 +29,10 @@ export class App {
         this.server.set('view engine', 'hbs')
         this.server.set('views', __dirname + '/views')
     }
-    private produtosInsert(){
-        const produtos = getproducts()
-        insertProducts(produtos)
-    }
+    // private produtosInsert(){
+    //     const produtos = getproducts()
+    //     insertProducts(produtos)
+    // }
     // private session() {
     //     this.server.use(session({
     //         secret: 'secret-key',
