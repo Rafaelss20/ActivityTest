@@ -5,7 +5,7 @@
     <input value="{{result.lastName}}" type="text" name="lastName" id="lastName"><br>
     <label for="email">Email:</label><br>
     <input value="{{result.mail}}" type="email" name="email" id="email"><br>
-    <li style="color: red;">{{result.isEmailExist}}</li>
+    <li style="color: red;">{{result.mailmsg}}</li>
     <label for="password">Senha:</label><br>
     <input value="{{result.password}}" type="password" name="password" id="password"><br>
     <li style="color: red;">{{result.number}}</li>
@@ -17,16 +17,18 @@
     <li style="color: red;">{{result.verify}}</li>
     <label for="cpf">CPF:</label><br>
     <input value="{{result.cpf}}" type="text" name="cpf" id="cpf"><br>
-    <p style="display: block;" id="templateSenha"></p>
+    <li style="color: red;">{{result.cpfValid}}</li>
     <label for="nascimento">Data de nascimento:</label><br>
     <input value="{{result.nascimento}}" type="date" name="nascimento" id="nascimento"><br>
-    <input type="text" name="numberCard" id="numberCard"><br>
-    <input type="number" name="cvv" id="cvv"><br>
-    <input type="text" name="dateValed" id="dateValed"><br>
+    <label for="numberCard">Número do cartão</label>
+    <input value="{{result.numberCard}}" type="text" name="numberCard" id="numberCard"><br>
+    <label for="cvv">Código CVV</label>
+    <input value="{{result.cvv}}" type="number" name="cvv" id="cvv"><br>
+    <label for="dateValed">Data de Validade</label>
+    <input value="{{result.dateValid}}" type="text" name="dateValed" id="dateValed"><br>
     <br>
     <a href="/"><button type="button">Voltar</button></a><button type="submit">Enviar</button>
 </form>
 <div>
     <h1>{{msg}}</h1>
-    <a href="/user">user</a>
 </div>
