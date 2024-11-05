@@ -1,6 +1,6 @@
 const Functions = require("../utils/CreateUserFunctions");
-const ModelCreateUser = require("./model/ResModelCreateUser");
-const monthyUser = require('./model/MonthyUser')
+const resCreateUser = require("../utils/model/ResModelCreateUser");
+const monthyUser = require('../utils/model/MonthyUser')
 // const db: any = connectDataBase()
 class CreateUser {
     // private database: any
@@ -9,7 +9,7 @@ class CreateUser {
     save(req, res) {
         const { firstName, lastName, email, password, cpf, nascimento, confirmPassword, numberCard, cvv, dateValed } = req.body;
         let isPassword = true;
-        let result = new ModelCreateUser(firstName, lastName, email, password, cpf, nascimento, confirmPassword, numberCard, cvv, dateValed);
+        let result = new resCreateUser(firstName, lastName, email, password, cpf, nascimento, confirmPassword, numberCard, cvv, dateValed);
         if (!Functions.hasNumber(password)) {
             result.number = '• Não contem número!';
             isPassword = false;
@@ -30,17 +30,29 @@ class CreateUser {
             result.verify = '• Senha não são identicas!';
             isPassword = false;
         }
+        Functions.verificarEmailExiste(email).then((existe) => {
+            if (existe) {
+                console.log("E-mail já cadastrado!");
+                result.mailmsg = '• E-mail já cadastrado!';
+                isPassword = false
+            } else {
+                console.log("E-mail disponível para cadastro.");
+            }
+        })
+            .catch((error) => {
+                console.error("Erro ao verificar e-mail:", error);
+            });
         if (!Functions.validateEmail(email)) {
-            result.verify = '• Senha não são identicas!';
+            result.mailmsg = '• Email Invalido!';
             isPassword = false;
         }
         if (isPassword) {
             const user = new monthyUser(firstName, lastName, email, password, cpf, nascimento, numberCard, cvv, dateValed);
             user.create()
-            return res.render("signup", { msg: 'Cadastrado com sucesso' });
+            return res.render("createUser", { msg: 'Cadastrado com sucesso' });
         }
         else {
-            return res.render('signup', { result: result });
+            return res.render('createUser', { result: result });
         }
     }
 }
