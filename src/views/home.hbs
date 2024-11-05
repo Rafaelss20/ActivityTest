@@ -1,15 +1,15 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <li class="container">
         <a class="navbar-brand" href="#">
-            <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
+            <img src="" alt="Bootstrap" width="30" height="24">
         </a>
     </li>
     <li class="container">
-        <form class="container-fluid">
+        <form class="container-fluid" action="searchProduct" method="post">
             <div class="input-group">
-                <span class="input-group-text" id="basic-addon1">🔎</span>
-                <input type="search" class="form-control" placeholder="Procurar" aria-label="Username"
-                    aria-describedby="basic-addon1" aria-autocomplete="both">
+                <input type="text" class="form-control" placeholder="Procurar" aria-label="Username"
+                    aria-describedby="basic-addon1" aria-autocomplete="both" id="searchProduct" name="searchProduct">
+                <button class="input-group-text" id="basic-addon1" type="submit">🔎</button>
             </div>
         </form>
     </li>
@@ -25,7 +25,7 @@
 <div>
     {{#each post}}
     <div class="cardProduct">
-        <h1>{{name}}</h1>
+        <h1>{{nameProduct}}</h1>
         <img src="/img/Produtos/{{img}}" alt="">
         <p>{{description}}</p>
     </div>

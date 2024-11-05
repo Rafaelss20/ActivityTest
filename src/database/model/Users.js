@@ -1,4 +1,4 @@
-const db = require('./db');
+const db = require('../db');
 
 const users = db.sequelize.define('users', {
     firstName: {
@@ -11,10 +11,10 @@ const users = db.sequelize.define('users', {
         type: db.Sequelize.STRING
     },
     nascimento: {
-        type: db.Sequelize.DATE
+        type: db.Sequelize.STRING
     },
     dateCreate: {
-        type: db.Sequelize.DATE
+        type: db.Sequelize.STRING
     },
     password: {
         type: db.Sequelize.STRING
@@ -28,11 +28,24 @@ const users = db.sequelize.define('users', {
     tryPassword: {
         type: db.Sequelize.INTEGER
     },
+    numberCard: {
+        type: db.Sequelize.INTEGER
+    },
+    dateValid: {
+        type: db.Sequelize.STRING
+    },
+    ccv: {
+        type: db.Sequelize.INTEGER
+    },
     cpf: {
         type: db.Sequelize.STRING
     }
 });
 
-users.sync({ force: true });
-
+users.findAll().then(()=>{
+    console.log('Existente');
+}).catch(()=>{
+    users.sync({ force: true });
+    console.log('Tabela Users criada');
+})
 module.exports = users;

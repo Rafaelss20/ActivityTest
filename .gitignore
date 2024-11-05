@@ -134,3 +134,5 @@ dist
 /cypress/videos/
 /cypress/screenshots/
 /cypress/e2e/Instruções
+
+package-lock.json

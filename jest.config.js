@@ -1,7 +1,5 @@
-import type {JestConfigWithTsJest } from 'ts-jest'
 
-const config: JestConfigWithTsJest ={
-    preset: 'ts-jest',
+const config = {
     testEnvironment: "node",
     collectCoverage: true,
     verbose: true,
@@ -9,4 +7,4 @@ const config: JestConfigWithTsJest ={
     coverageProvider: 'v8'
 }
 
-export default config
+module.exports = config
