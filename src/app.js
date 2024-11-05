@@ -3,20 +3,22 @@ const router = require("./router")
 const body_parser = require("body-parser");
 const path = require("path");
 const handlebars = require("express-handlebars");
-// import { insertProducts } from './database/db';
+const session = require("express-session")
 class App {
     server = express();
-    
+
     constructor() {
         this.server;
         this.layout();
         this.static();
         this.urlencoded();
         this.middleware();
+        this.session();
+        this.checkSession()
         this.router();
     }
     layout() {
-        this.server.engine('hbs',  handlebars.engine({
+        this.server.engine('hbs', handlebars.engine({
             defaultLayout: 'main', //arquivo principal em html
             runtimeOptions: {
                 allowProtoPropertiesByDefault: true,
@@ -26,10 +28,6 @@ class App {
         this.server.set('view engine', 'hbs');
         this.server.set('views', __dirname + '/views');
     }
-    // private produtosInsert(){
-    //     const produtos = getproducts()
-    //     insertProducts(produtos)
-    // }
     static() {
         this.server.use(express.static(path.join(__dirname, "assets")));
     }
@@ -41,6 +39,21 @@ class App {
     }
     router() {
         this.server.use(router);
+    }
+    session() {
+        this.server.use(session({
+            secret: 'secret-key',
+            resave: false,
+            saveUninitialized: false,
+            cookie: { maxAge: 10 * 60 * 1000 } // 10 Minutos
+        }));
+    }
+    checkSession() {
+        const sessionAllowPath = ["", "/", "/login","/create","/signUser", "/createUserForm"]
+        this.server.use('/*', (req, res, next) => {
+            if (sessionAllowPath.indexOf(req.baseUrl) === -1 && !req.session.isLoggedIn) return res.render('login',{msg: 'Sessão expirada'});
+            next()
+        })
     }
     getServer() {
         return this.server;
