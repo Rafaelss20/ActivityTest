@@ -1,11 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.hasEightChar = hasEightChar;
-exports.hasLowerCase = hasLowerCase;
-exports.hasNumber = hasNumber;
-exports.hasUpperCase = hasUpperCase;
-exports.veriftPassword = veriftPassword;
-exports.validateEmail = validateEmail;
+
+const users = require('../database/model/Users');
 //Senha
 //Verificar se a senha é identica a confirmação de senha
 function veriftPassword(password, passwordConfirmation) {
@@ -27,17 +21,17 @@ function hasLowerCase(password) {
 function hasEightChar(password) {
     return password.length >= 8;
 }
-async function verificarEmailExiste(email){
+async function verificarEmailExiste(email) {
     try {
-        const user = await User.findOne({ email });
-        return !!user; // Retorna true se o usuário foi encontrado, false caso contrário
+        const user = await users.findOne({ where: { email: email } });
+        return user !== null; // Retorna true se o e-mail existir, false caso contrário
     } catch (error) {
-        console.error('Erro ao verificar email:', error);
-        return false;
+        console.error("Erro ao verificar e-mail:", error);
+        throw error; // Relança o erro para tratamento adicional
     }
 }
 function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
-module.exports = {veriftPassword, hasEightChar, hasLowerCase, hasNumber, validateEmail, hasUpperCase}
+module.exports = { veriftPassword, hasEightChar, hasLowerCase, hasNumber, validateEmail, hasUpperCase, verificarEmailExiste }
