@@ -13,3 +13,12 @@ img{
     margin: 5px 10% 5px 10%;
     border-radius: 15px;
 }
+.container{
+    display: flex;
+}
+.row{
+    flex-direction: row;
+}
+.column{
+    flex-direction: column;
+}
