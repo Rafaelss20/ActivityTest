@@ -11,10 +11,10 @@ class monthyUser {
         this.userBlock = false;
         this.tryPassword = 0;
         this.password = password;
-        this.dateCreate = String(new Date());
-        this.numberCard = numberCard,
-        this.ccv = ccv,
-        this.dateValid = dateValid
+        this.numberCard = numberCard;
+        this.ccv = ccv;
+        this.dateValid = dateValid;
+        this.balance = (Math.random()*10000).toFixed(0);
     }
 
     create() {
@@ -28,11 +28,12 @@ class monthyUser {
             userBlock: this.userBlock,
             tryPassword: this.tryPassword,
             password: this.password,
-            dateCreate: this.dateCreate,
             numberCard: this.numberCard,
             ccv: this.ccv,
             dateValid: this.dateValid,
+            balance: this.balance
         })
+        return console.log('Criado com sucesso')
     }
 }
 module.exports = monthyUser

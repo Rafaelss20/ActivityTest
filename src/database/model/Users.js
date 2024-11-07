@@ -13,9 +13,6 @@ const users = db.sequelize.define('users', {
     nascimento: {
         type: db.Sequelize.STRING
     },
-    dateCreate: {
-        type: db.Sequelize.STRING
-    },
     password: {
         type: db.Sequelize.STRING
     },
@@ -29,21 +26,24 @@ const users = db.sequelize.define('users', {
         type: db.Sequelize.INTEGER
     },
     numberCard: {
-        type: db.Sequelize.INTEGER
+        type: db.Sequelize.STRING
     },
     dateValid: {
         type: db.Sequelize.STRING
     },
     ccv: {
-        type: db.Sequelize.INTEGER
+        type: db.Sequelize.STRING
     },
     cpf: {
         type: db.Sequelize.STRING
+    },
+    saldo:{
+        type:db.Sequelize.INTEGER
     }
 });
 
 users.findAll().then(()=>{
-    console.log('Existente');
+    console.log('Tabela usuários existente');
 }).catch(()=>{
     users.sync({ force: true });
     console.log('Tabela Users criada');

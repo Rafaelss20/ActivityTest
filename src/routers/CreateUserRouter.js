@@ -1,12 +1,12 @@
 const Functions = require("../utils/CreateUserFunctions");
 const resCreateUser = require("../utils/model/ResModelCreateUser");
-const monthyUser = require('../utils/model/MonthyUser')
-// const db: any = connectDataBase()
+const monthyUser = require('../utils/model/MonthyUser');
+
 class CreateUser {
     // private database: any
     constructor() {
     }
-    save(req, res) {
+    async save(req, res) {
         const { firstName, lastName, email, password, cpf, nascimento, confirmPassword, numberCard, cvv, dateValed } = req.body;
         let isPassword = true;
         let result = new resCreateUser(firstName, lastName, email, password, cpf, nascimento, confirmPassword, numberCard, cvv, dateValed);
@@ -30,7 +30,7 @@ class CreateUser {
             result.verify = '• Senha não são identicas!';
             isPassword = false;
         }
-        Functions.verificarEmailExiste(email).then((existe) => {
+        await Functions.verificarEmailExiste(email).then((existe) => {
             if (existe) {
                 console.log("E-mail já cadastrado!");
                 result.mailmsg = '• E-mail já cadastrado!';
@@ -47,7 +47,7 @@ class CreateUser {
             isPassword = false;
         }
         if (isPassword) {
-            const user = new monthyUser(firstName, lastName, email, password, cpf, nascimento, numberCard, cvv, dateValed);
+            const user = await new monthyUser(firstName, lastName, email, password, cpf, nascimento, numberCard, cvv, dateValed);
             user.create()
             return res.render("createUser", { msg: 'Cadastrado com sucesso' });
         }

@@ -1,8 +1,6 @@
-const { Op } = require("sequelize");
 const bag = require("../database/model/CarBuy");
-const itemBag = require("../database/model/CarBuy");
 const products = require("../database/model/Product");
-const verifiqueProduto = require("../utils/CarBuyFunctions");
+const { verifiqueProduto } = require("../utils/CarBuyFunctions");
 const ProductClass = require("../utils/model/ProductClass");
 
 class CarBuy {
@@ -11,9 +9,9 @@ class CarBuy {
     open(req, res) {
         bag.findAll().then((result)=>{
             if (result[0]!==undefined) {
-                return res.render('carbuy', { itens: result })
+                return res.render('carbuy', { itens: result , userAcess: req.session.name})
             } else {
-                return res.render('carbuy', { msg: 'Nenhum item adicionado'})
+                return res.render('carbuy', { msg: 'Nenhum item adicionado', userAcess: req.session.name})
             }
         })
     }
@@ -31,8 +29,6 @@ class CarBuy {
         }).catch((erro) => {
             console.error('Error: ', erro)
         })
-        console.log(arrayProduct);
-        
         const quantidade = req.body.quantidade || 1
         let existente = await verifiqueProduto(arrayProduct.idProduto)
         console.log(existente);
@@ -42,9 +38,7 @@ class CarBuy {
                 let temp = post.quantidade + quantidade
                 let subtotal = temp * post.product.value
                 console.log('Quantidade: ',quantidade);
-                
                 console.log('Total: ',subtotal);
-                
                 post.quantidade = temp
                 post.subTota = subtotal
                 post.save()
@@ -53,7 +47,7 @@ class CarBuy {
             let subtotal = quantidade * arrayProduct.value
             bag.create({ idProduct: arrayProduct.idProduto, quantidade: quantidade, product: arrayProduct, subTota: subtotal })
         }
-        return res.render('sucessfull', { msg: `Adicionado ${quantidade} x ${arrayProduct.name} com sucesso` })
+        return res.render('sucessfull', { msg: `Adicionado ${quantidade} x ${arrayProduct.name} com sucesso` , carBuy: true})
     }
 }
 module.exports = CarBuy

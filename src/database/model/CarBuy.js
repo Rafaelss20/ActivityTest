@@ -1,8 +1,7 @@
 const db = require("../db");
-const products = require("./Product");
 
 
-const bag = db.sequelize.define('bag',{
+const bag = db.sequelize.define('bags',{
     idProduct: {
         type: db.Sequelize.STRING
     },
@@ -16,7 +15,10 @@ const bag = db.sequelize.define('bag',{
         type: db.Sequelize.JSON
     }
 })
-
-bag.sync({force: true})
+bag.findAll().then(()=>{
+    console.log('Tabela bag existente')
+}).catch(()=>{
+    bag.sync({force: true})
+})
 
 module.exports = bag

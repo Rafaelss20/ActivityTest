@@ -9,6 +9,7 @@ const Authentication = require("./routers/LoginRouter");
 const Logout = require("./routers/LogoutRouter");
 const TrackOrders = require("./routers/TrackeOrdesRouter");
 const CarBuy = require("./routers/CarBuyRouter");
+const buyBag = require("./routers/BuyRouter");
 // const createUserService = new CreateUserService
 /**Instanciamento da  */
 const createUser = new CreateUserRouter;
@@ -17,6 +18,7 @@ const authentication = new Authentication;
 const logout = new Logout
 const trackeOrdes = new TrackOrders
 const addCar = new CarBuy
+const buy = new buyBag
 //Routes
 router.get("/", (req, res) => {
     res.render('login')
@@ -38,6 +40,9 @@ router.get("/Carbuy", (req,res) => {
 })
 router.get("/addCar/:id", (req,res) => {
     addCar.addItem(req, res)
+})
+router.get('/Buy',(req,res)=>{
+    buy.checkout(req,res)
 })
 router.post("/searchRastreio", (req, res) => {
     trackeOrdes.listarpedido(req, res)
