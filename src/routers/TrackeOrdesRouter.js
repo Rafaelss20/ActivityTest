@@ -1,14 +1,23 @@
+const { Op } = require("sequelize");
 const trackOrders = require("../database/model/TrackeOrdes");
 
 class TrackOrders {
     constructor() { }
+    open(req, res) {
+        res.render('trackorders', { msg: 'Para listar todos os pedidos, busque por nada' })
+    }
     listarpedido(req, res) {
-        trackOrders.findOne({ where: { id: 1 } })
+        const search = `${req.body.codRastreio}%`
+        trackOrders.findAll({ where: { idPed: { [Op.like]: search } } })
             .then((result) => {
-                res.render('trackorders', { orders: result })
+                if (result[0]!==undefined) {
+                    return res.render('trackorders', { orders: result })
+                } else {
+                    return res.render('trackorders', { orders: [{ idPed: `Código ${search.split('%', 1)} não encontrado.` }] })
+                }
             })
-            .catch((erro)=>{
-                res.render('trackorders', {orders: erro})
+            .catch((erro) => {
+                console.log('Error: ', erro);
             })
     }
 }

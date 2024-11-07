@@ -1,7 +1,5 @@
 describe('ActivityTest', () => {
-beforeEach(() => {
-  cy.visit('http://localhost:8082')
-})
+
 
 it('Testando formulário de cadastro', () => {
     cy.visit('http://localhost:8082/create')
@@ -61,4 +59,33 @@ it ('Testando procura por produtos', () => {
   cy.get('#basic-addon1').click()
   cy.get(':nth-child(1) > .container > p').should('be.visible')
 })
+
+it("Testando adicionar ao carrinho", () => {
+  cy.visit('http://localhost:8082/home')
+  cy.get(':nth-child(1) > .container > a').click()
+  cy.get('[href="/Carbuy"]').click()
+  cy.get('body > :nth-child(2) > :nth-child(2)').should('be.visible')
+})
+
+it("Testando acompanhamento de pedido", () => {
+  cy.visit('http://localhost:8082/home')
+  cy.get('[href="/Pedidos"]').click()
+  cy.get('#codRastreio').type("NCAXOPERQ")
+  cy.get('form > button').click()
+
+})
+
+it("Testando acompanhamento de pedido com código inválido", () => {
+  cy.visit('http://localhost:8082/home')
+  cy.get('[href="/Pedidos"]').click()
+  cy.get('#codRastreio').type("ABCD")
+  cy.get('form > button').click()
+  cy.get(':nth-child(2) > th').should('be.visible')
+
+})
+
+
+
+
+
 })
