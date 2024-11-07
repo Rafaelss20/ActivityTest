@@ -1,45 +1,59 @@
-const { where } = require("sequelize");
-const database = require("../database/localstorage");
+const { Op } = require("sequelize");
 const bag = require("../database/model/CarBuy");
 const itemBag = require("../database/model/CarBuy");
 const products = require("../database/model/Product");
 const verifiqueProduto = require("../utils/CarBuyFunctions");
+const ProductClass = require("../utils/model/ProductClass");
 
-class CarBuy{
-    constructor(){   
+class CarBuy {
+    constructor() {
     }
-    open(req,res){
-        const produtosAdicionados = []
-        for (let index = 0; index < localStorage.length; index++) {
-            let temp = localStorage.getItem(index)
-            temp = this.gerarItem(temp.id)
-            produtosAdicionados.push(temp)
-        }
-        return res.render('carbuy',localStorage)
-    }
-    gerarItem(produto){    
-        return products.findOne({where: {id: produto}})
-    }
-    addItem(req,res){
-        console.log(req.params.id);
-        
-        const info = this.gerarItem(req.params.id)
-        console.log('Busca sucessfull');
-        const quantidade = req.body.quantidade || 1
-        let existente = verifiqueProduto(info)
-        if(existente.value){
-            bag.findOne({where: {id: existente.id }}).then((post)=>{
-                post.quantidade = post.quantidade + quantidade
-            })
-        }else{
-            bag.create({idProduct: info,quantidade: quantidade})
-        }
-        bag.findOne({where: {id: existente.id }}).then((post)=>{
-          quantidade = post.quantidade
+    open(req, res) {
+        bag.findAll().then((result)=>{
+            if (result[0]!==undefined) {
+                return res.render('carbuy', { itens: result })
+            } else {
+                return res.render('carbuy', { msg: 'Nenhum item adicionado'})
+            }
         })
+    }
+
+    async addItem(req, res) {
+        // console.log(req.params.id);
+        let arrayProduct = new ProductClass()
+        await products.findOne({ where: { id: req.params.id } }).then((result) => {
+            console.log(result);
+            arrayProduct.idProduto = result.idProduct
+            arrayProduct.description = result.description
+            arrayProduct.img = result.img
+            arrayProduct.name = result.nameProduct
+            arrayProduct.value = result.value
+        }).catch((erro) => {
+            console.error('Error: ', erro)
+        })
+        console.log(arrayProduct);
         
-        console.log('sucess');
-        return res.render('Sucefull', {msg: `Adicionado ${quantidade} x ${info.name} com sucesso`})
+        const quantidade = req.body.quantidade || 1
+        let existente = await verifiqueProduto(arrayProduct.idProduto)
+        console.log(existente);
+        
+        if (existente) {
+            await bag.findOne({ where: { idProduct: arrayProduct.idProduto } }).then((post) => {
+                let temp = post.quantidade + quantidade
+                let subtotal = temp * post.product.value
+                console.log('Quantidade: ',quantidade);
+                
+                console.log('Total: ',subtotal);
+                
+                post.quantidade = temp
+                post.subTota = subtotal
+                post.save()
+            })
+        } else {
+            let subtotal = quantidade * arrayProduct.value
+            bag.create({ idProduct: arrayProduct.idProduto, quantidade: quantidade, product: arrayProduct, subTota: subtotal })
+        }
+        return res.render('sucessfull', { msg: `Adicionado ${quantidade} x ${arrayProduct.name} com sucesso` })
     }
 }
 module.exports = CarBuy

@@ -33,6 +33,9 @@ router.get("/logout", (req, res) => {
 router.get("/Pedidos", (req, res) => {
     trackeOrdes.open(req, res)
 })
+router.get("/Carbuy", (req,res) => {
+    addCar.open(req, res)
+})
 router.get("/addCar/:id", (req,res) => {
     addCar.addItem(req, res)
 })
