@@ -1,4 +1,4 @@
-const {veriftPassword, hasNumber, hasUpperCase, hasLowerCase, hasEightChar, validateEmail} =  require ('../src/utils/CreateUserFunctions')
+const {veriftPassword, hasNumber, hasUpperCase, hasLowerCase, hasEightChar, validateEmail, verificarEmailExiste} =  require ('../src/utils/CreateUserFunctions')
 
 describe ("Testing function veriftPassword", () => {
     it("Check if password is the same passwordConfirmation", () => {
@@ -63,3 +63,13 @@ describe ("Testing function validateEmail", () => {
     })
 })
 
+describe("Testing function verificarEmailExiste", () => {
+   it("Check if email exists", async () => {
+    const result = await verificarEmailExiste ('rafael@gmail.com')
+    expect(result).toBe(true)
+    })
+    it("Check if email exists", async () => {
+        const result = await verificarEmailExiste ('email@email.com')
+        expect(result).toBe(false)
+        })
+})
