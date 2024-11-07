@@ -1,5 +1,7 @@
 describe('ActivityTest', () => {
-
+beforeEach(() => {
+  cy.visit('http://localhost:8082')
+})
 
 it('Testando formulário de cadastro', () => {
     cy.visit('http://localhost:8082/create')
@@ -14,7 +16,7 @@ it('Testando formulário de cadastro', () => {
     cy.get('#cvv').type('1')
     cy.get('#dateValed').type('01/01/01')
     cy.get('[type="submit"]').click()
-    cy.get('h1').should('be.visible')
+    cy.get('h1').should('be.visible').and('contain', "Cadastrado com sucesso")
      })
 
 it('Testando formulário de cadastro com senha incorreta', () => {
