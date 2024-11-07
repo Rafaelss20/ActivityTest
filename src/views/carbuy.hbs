@@ -3,8 +3,8 @@
     <h1>{{msg}}</h1>
     {{#each itens}}
     <div>
-        <p>{{product.name}}</p>
-        <img src="/img/{{product.img}}" alt="">
+        <h3>{{product.name}}</h3>
+        <img src="/img/Produtos/{{product.img}}" alt="">
         <p>Descrição: {{product.description}}</p>
         <p>Valor uniátio: {{product.value}}</p>
         <p>Quantidade: {{quantidade}}</p>
@@ -21,6 +21,8 @@
     {{/each}}
 </div>
 <div>
+<h1>Total:</h1>
+<button type="button"> <a href="/Buy">Finalizar Compra</a></button>
     {{!-- Total: <span value="total()"></span> --}}
 </div>
 <script>
@@ -43,4 +45,4 @@
 </script>
 {{!--
 <script src="../utils/CarBuy.ts"></script> --}}
-{{>footer}}
+{{!-- {{>footer}} --}}

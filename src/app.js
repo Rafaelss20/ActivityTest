@@ -4,6 +4,7 @@ const body_parser = require("body-parser");
 const path = require("path");
 const handlebars = require("express-handlebars");
 const session = require("express-session")
+const { cleanBag } =require('./utils/CarBuyFunctions')
 class App {
     server = express();
 
@@ -14,7 +15,7 @@ class App {
         this.static();
         this.urlencoded();
         this.middleware();
-        // this.checkSession();
+        this.checkSession();
         this.router();
     }
     layout() {
@@ -45,13 +46,16 @@ class App {
             secret: 'secret-key',
             resave: false,
             saveUninitialized: false,
-            cookie: { maxAge: 1 * 60 * 60 * 1000 } // 10 Minutos
+            cookie: { maxAge: 1 * 10 * 60 * 1000 } // 10 Minutos
         }));
     }
     checkSession() {
         const sessionAllowPath = ["", "/", "/login","/create","/signUser", "/createUserForm"]
         this.server.use('/*', (req, res, next) => {
-            if (sessionAllowPath.indexOf(req.baseUrl) === -1 && !req.session.isLoggedIn) return res.render('login',{msg: 'Sessão expirada'});
+            if (sessionAllowPath.indexOf(req.baseUrl) === -1 && !req.session.isLoggedIn) {
+                cleanBag()
+                return res.render('sucessfull',{msg: 'Sessão expirada', sessionCod: true});
+            }
             next()
         })
     }

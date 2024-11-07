@@ -11,9 +11,9 @@ class TrackOrders {
         trackOrders.findAll({ where: { idPed: { [Op.like]: search } } })
             .then((result) => {
                 if (result[0]!==undefined) {
-                    return res.render('trackorders', { orders: result })
+                    return res.render('trackorders', { orders: result , userAcess: req.session.name})
                 } else {
-                    return res.render('trackorders', { orders: [{ idPed: `Código ${search.split('%', 1)} não encontrado.` }] })
+                    return res.render('trackorders', { orders: [{ idPed: `Código ${search.split('%', 1)} não encontrado.` }] , userAcess: req.session.name})
                 }
             })
             .catch((erro) => {

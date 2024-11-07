@@ -1,6 +1,11 @@
 <main class="container">
-<meta http-equiv="refresh" content="1.5; url=/home">
+{{#if sessionCod}}
+<meta http-equiv="refresh" content="1.5; url=/">
+{{/if}}
+<meta http-equiv="refresh" content="2; url=/home">
 <h1>{{msg}}</h1>
 <br>
+{{#if carBuy}}
 <progress />
+{{/if}}
 </main>
