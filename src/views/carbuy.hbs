@@ -1,16 +1,46 @@
+{{>nav}}
 <div>
+    <h1>{{msg}}</h1>
     {{#each itens}}
-        <div>
-            <p>{{itens.item.name}}</p>
-            {{!-- <img src="/img/{{itens.item.img}}" alt=""> --}}
-            <p>{{itens.item.description}}</p>
-            <p>{{itens.quantidade}}</p>
-            <p>{{itens.subTotal}}</p>
+    <div>
+        <p>{{product.name}}</p>
+        <img src="/img/{{product.img}}" alt="">
+        <p>Descrição: {{product.description}}</p>
+        <p>Valor uniátio: {{product.value}}</p>
+        <p>Quantidade: {{quantidade}}</p>
+        <p>SubTotal: {{subTota}}</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <button type="button" id="menos" onclick="less()">-</button><input type="number" name="numero" id="num"
+                    oninput="Num()" value="{{quantidade}}"><button type="button" id="mais" onclick="more()">+</button>
+            </div>
         </div>
+    </div>
     {{/each}}
 </div>
 <div>
     {{!-- Total: <span value="total()"></span> --}}
 </div>
-
-{{!-- <script src="../utils/CarBuy.ts"></script> --}}
+<script>
+    function less() {
+        let number = getValue()
+        number--;
+        setValue(number)
+    }
+    function more() {
+        let number = getValue()
+        number++;
+        setValue(number)
+    }
+    function setValue(value) {
+        document.getElementById('num').value = value;
+    }
+    function getValue() {
+        return document.getElementById('num').value;
+    }
+</script>
+{{!--
+<script src="../utils/CarBuy.ts"></script> --}}
+{{>footer}}

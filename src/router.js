@@ -8,6 +8,7 @@ const home = require("./routers/HomeRouter");
 const Authentication = require("./routers/LoginRouter");
 const Logout = require("./routers/LogoutRouter");
 const TrackOrders = require("./routers/TrackeOrdesRouter");
+const CarBuy = require("./routers/CarBuyRouter");
 // const createUserService = new CreateUserService
 /**Instanciamento da  */
 const createUser = new CreateUserRouter;
@@ -15,6 +16,7 @@ const produtos = new home;
 const authentication = new Authentication;
 const logout = new Logout
 const trackeOrdes = new TrackOrders
+const addCar = new CarBuy
 //Routes
 router.get("/", (req, res) => {
     res.render('login')
@@ -25,19 +27,28 @@ router.get("/create", (req, res) => {
 router.get("/home", (req, res) => {
     produtos.findAll(req, res);
 });
-router.get("/logout", (req,res)=>{
-    logout.sair(req,res)
+router.get("/logout", (req, res) => {
+    logout.sair(req, res)
 })
-router.get("/Pedidos",(req,res)=>{
-    trackeOrdes.listarpedido(req,res)
+router.get("/Pedidos", (req, res) => {
+    trackeOrdes.open(req, res)
 })
-router.post('/searchProduct',(req,res)=>{
-    produtos.find(req,res)
+router.get("/Carbuy", (req,res) => {
+    addCar.open(req, res)
+})
+router.get("/addCar/:id", (req,res) => {
+    addCar.addItem(req, res)
+})
+router.post("/searchRastreio", (req, res) => {
+    trackeOrdes.listarpedido(req, res)
+})
+router.post('/searchProduct', (req, res) => {
+    produtos.find(req, res)
 })
 router.post('/createUserForm', (req, res) => {
     createUser.save(req, res)
 });
-router.post('/signUser', (req, res)=>{
-    authentication.findOne(req,res)
+router.post('/signUser', (req, res) => {
+    authentication.findOne(req, res)
 })
 module.exports = router;

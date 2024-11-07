@@ -1,14 +1,60 @@
-
+{{>nav}}
 <div>
-    {{#each orders}}
-        <h1>Produto {{id}}</h1>
-        <span>{{entregue.name}}</span>-<span>  {{entregue.data}}</span><br>
-        <span>{{acaminho.name}}</span>-<span>  {{acaminho.data}}</span><br>
-        <span>{{nadistribuidora.name}}</span>-<span>  {{nadistribuidora.data}}</span><br>
-        <span>{{emtransito.name}}</span>-<span>  {{emtransito.data}}</span><br>
-        <span>{{saiuDestino.name}}</span>-<span>  {{saiuDestino.data}}</span><br>
-        <span>{{embarcado.name}}</span>-<span>  {{embarcado.data}}</span><br>
-        <span>{{preaparaco.name}}</span>-<span>  {{preaparaco.data}}</span><br>
-        <span>{{separacao.name}}</span>-<span>  {{separacao.data}}</span><br>
-    {{/each}}
+    <form action="searchRastreio" method="post">
+        <label for="codRastreio">Informe o código de rastreio:</label><br>
+        <input type="text" name="codRastreio" id="codRastreio">
+        <button type="submit">🔍</button>
+    </form>
+    <hr>
+    <h2>{{msg}}</h2>
+    <table>
+        <caption>
+            Rastremaneto de pedidos
+        </caption>
+        {{#if orders}}
+        <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Name</th>
+            <th scope="col">Data</th>
+        </tr>
+        {{/if}}
+        {{#each orders}}
+        <tr>
+            <th rowspan="9">{{idPed}}</th>
+        </tr>
+        <tr>
+            <td><span>{{entregue.name}}</span></td>
+            <td><span>{{entregue.data}}</span></td>
+        </tr>
+        <tr>
+            <td><span>{{acaminho.name}}</span></td>
+            <td><span>{{acaminho.data}}</span></td>
+        </tr>
+        <tr>
+            <td><span>{{nadistribuidora.name}}</span></td>
+            <td><span>{{nadistribuidora.data}}</span></td>
+        </tr>
+        <tr>
+            <td><span>{{emtransito.name}}</span></td>
+            <td><span>{{emtransito.data}}</span></td>
+        </tr>
+        <tr>
+            <td><span>{{saiuDestino.name}}</span></td>
+            <td><span>{{saiuDestino.data}}</span></td>
+        </tr>
+        <tr>
+            <td><span>{{embarcado.name}}</span></td>
+            <td><span>{{embarcado.data}}</span></td>
+        </tr>
+        <tr>
+            <td><span>{{preaparaco.name}}</span></td>
+            <td><span>{{preaparaco.data}}</span></td>
+        </tr>
+        <tr>
+            <td><span>{{separacao.name}}</span></td>
+            <td><span>{{separacao.data}}</span></td>
+        </tr>
+        {{/each}}
+    </table>
 </div>
+{{>footer}}
