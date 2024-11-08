@@ -1,29 +1,173 @@
+* {
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav {
+    display: flex;
+    flex: row;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #383E40;
+    height: 50px;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(to bottom, #F2858E, #F23545);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 li {
     list-style: none;
-}   
-img{
+}
+
+.imgLogo {
+    height: 200px;
+    width: 200px;
+    image-resolution: 100%;
+    border: none;
+    background-color: none;
+}
+
+img {
     width: 100px;
-    image-resolution: 100px;
+    height: 100px;
+    image-resolution: 100%;
     border: solid 1px black;
     margin-left: 10px;
     background-color: aliceblue;
 }
-.cardProduct{
+
+label {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.loginForm {
+    min-width: 320px;
+}
+
+input {
+    min-height: 25px;
+    min-width: 300px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #8C3A3A;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+/* button a {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    size: 25px;
+    text-decoration: none;
+} */
+
+.cotainerButton {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    justify-content: space-around;
+    & button {
+        text-align: center;
+        size: 18px;
+        font-style: initial;
+
+        & a {
+            /* background-color: black; */
+            text-align: center;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+    }
+    & .flex{
+        flex-grow: 1
+    }
+
+}
+
+.homeSection {
+    position: relative;
+    top: 80px;
+    bottom: 60px;
+    overflow-y: scroll;
+    height: 100%;
+    max-width: 550px;
+    min-width: 150vh;
+    background-color: #f2f2f271;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+
+}
+
+.cardProduct {
     background-color: aliceblue;
     margin: 5px 10% 5px 10%;
     border-radius: 15px;
+    max-height: 150px;
 }
-.container{
+
+.containerLogin {
+    height: 50vh;
+    max-width: 550px;
+    min-width: 420px;
     display: flex;
+    border: 1px solid #ccc;
+    background-color: #F2F2F2;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    align-items: center;
+
 }
-.row{
+
+.row {
     flex-direction: row;
 }
-.column{
+
+.column {
+    min-height: 200px;
     flex-direction: column;
 }
-.valueUnit{
+
+.valueUnit {
     background-color: none;
     border: none;
     width: 100px;
+}
+
+.item {
+    margin: 5px;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.center {
+    align-items: center;
 }

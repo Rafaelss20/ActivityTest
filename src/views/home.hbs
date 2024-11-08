@@ -1,15 +1,15 @@
 {{>nav}}
-<div>
+<main class="homeSection">
     {{#each post}}
     <div class="cardProduct">
         <h1>{{nameProduct}}</h1>
         <div class="container row-cols-3">
-        <img src="/img/Produtos/{{img}}" alt="">
-        <p>{{description}}</p>
-        <span>R$ {{value}},00</span>
-        <a href="/addCar/{{id}}">Adicionar Carrinho</a>
+            <img src="/img/Produtos/{{img}}" alt="">
+            <p>{{description}}</p>
+            <span>R$ {{value}},00</span>
+            <a href="/addCar/{{id}}">Adicionar Carrinho</a>
         </div>
     </div>
     {{/each}}
-</div>
+</main>
 {{>footer}}
