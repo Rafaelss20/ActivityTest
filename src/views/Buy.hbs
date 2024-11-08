@@ -1,17 +1,31 @@
 {{>nav}}
-<section>
-    Olá {{user}}, estamos quase concluido seu pedido.<br>Para finalizar,
-    <br>
-    <br>
+<section class="containerbuy column center">
+    <div class="flex">
+        <p>Olá {{user}}, estamos quase concluido seu pedido.</p>
+        <p>Para finalizar,</p>
+        <br>
+        <br>
+    </div>
     <form action="finishBuy" method="post">
-        <label for="card">Informe os 4 últimos digitos do cartão</label>
-        <input type="text" name="cardNumberEnd" maxlength="4" pattern="([0-9]{4})" required>
-        <label for="cvv">Informe código de segurança do cartão:</label>
-        <input type="text" name="cvvCard" maxlength="3" pattern="([0-9]{3})">
-        <label for="CPF">Informe CPF</label>
-        <input type="text" name="cpf" id="cpf" placeholder="00000000000" pattern="([0-9]{11})" maxlength="11" required>
-        <h1>Total: R$ <b name="total">{{total}}</b></h1>
-        <button><a href="/CarBuy">Cancerlar</a></button>
-        <button type="submit">Finalizar Compra</button>
+        <div class="flex row">
+            <label for="card">Informe os 4 últimos digitos do cartão</label>
+            <input type="text" name="cardNumberEnd" maxlength="4" pattern="([0-9]{4})" required>
+        </div>
+        <div class="flex row">
+            <label for="cvv">Informe código de segurança do cartão:</label>
+            <input type="text" name="cvvCard" maxlength="3" pattern="([0-9]{3})">
+        </div>
+        <div class="flex">
+            <label for="CPF">Informe CPF</label>
+            <input type="text" name="cpf" id="cpf" placeholder="00000000000" pattern="([0-9]{11})" maxlength="11"
+                required>
+        </div>
+        <div class="flex">
+            <h1>Total da compra: <br><span>R$ <b name="total">{{total}}</b></span></h1>
+        </div>
+        <div class="cotainerButton row">
+            <button class="item flex"><a href="/CarBuy">Cancerlar</a></button>
+            <button class="item flex" type="submit" style="background-color: #36ac53;">Finalizar Compra</button>
+        </div>
     </form>
 </section>
