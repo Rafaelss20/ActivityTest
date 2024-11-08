@@ -44,7 +44,7 @@ async function isDateValid(cardDate) {
 
 }
 async function lastNumberCard(numberRegistered, numberProvid) {
-    let resgistrado = String(numberRegistered).slice(15)
+    let resgistrado = String(numberRegistered).slice(12)
     console.log('Number card: ', resgistrado);
     console.log('Result number card: ', Boolean(resgistrado === String(numberProvid)));
     return Boolean(resgistrado !== String(numberProvid))
