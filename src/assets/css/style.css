@@ -39,7 +39,7 @@ nav {
     & input {
         height: 20px;
         border-radius: 6px;
-        margin-right: -5px ;
+        margin-right: -5px;
     }
 
     .containterAcess {
@@ -299,6 +299,7 @@ button {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.514);
     padding: 25px;
+
     & p {
         align-self: baseline;
         text-align: start;
@@ -314,13 +315,36 @@ button {
     & h1 {
         font-family: Arial, Helvetica, sans-serif;
         font-size: 25px;
-        & b{
+
+        & b {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 35px;
         }
-        & span{
+
+        & span {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 30px;
         }
+    }
+}
+
+.containerSucessfull {
+    align-self: start;
+    flex-direction: column;
+    min-height: 600px;
+    max-height: 800px;
+    max-width: 750px;
+    min-width: 40vw;
+    display: flex;
+    border: 1px solid #ccc;
+    background-color: #F2F2F2;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(204, 201, 201, 0.788);
+    padding: 15px;
+    & h1{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 40px;
+        text-align: center;
     }
 }
