@@ -1,60 +1,67 @@
 {{>nav}}
-<div>
-    <form action="searchRastreio" method="post">
-        <label for="codRastreio">Informe o código de rastreio:</label><br>
-        <input type="text" name="codRastreio" id="codRastreio">
-        <button type="submit">🔍</button>
-    </form>
-    <hr>
-    <h2>{{msg}}</h2>
-    <table>
-        <caption>
-            Rastremaneto de pedidos
-        </caption>
-        {{#if orders}}
-        <tr>
-            <th scope="col">Código</th>
-            <th scope="col">Name</th>
-            <th scope="col">Data</th>
-        </tr>
-        {{/if}}
-        {{#each orders}}
-        <tr>
-            <th rowspan="9">{{idPed}}</th>
-        </tr>
-        <tr>
-            <td><span>{{entregue.name}}</span></td>
-            <td><span>{{entregue.data}}</span></td>
-        </tr>
-        <tr>
-            <td><span>{{acaminho.name}}</span></td>
-            <td><span>{{acaminho.data}}</span></td>
-        </tr>
-        <tr>
-            <td><span>{{nadistribuidora.name}}</span></td>
-            <td><span>{{nadistribuidora.data}}</span></td>
-        </tr>
-        <tr>
-            <td><span>{{emtransito.name}}</span></td>
-            <td><span>{{emtransito.data}}</span></td>
-        </tr>
-        <tr>
-            <td><span>{{saiuDestino.name}}</span></td>
-            <td><span>{{saiuDestino.data}}</span></td>
-        </tr>
-        <tr>
-            <td><span>{{embarcado.name}}</span></td>
-            <td><span>{{embarcado.data}}</span></td>
-        </tr>
-        <tr>
-            <td><span>{{preaparaco.name}}</span></td>
-            <td><span>{{preaparaco.data}}</span></td>
-        </tr>
-        <tr>
-            <td><span>{{separacao.name}}</span></td>
-            <td><span>{{separacao.data}}</span></td>
-        </tr>
-        {{/each}}
-    </table>
-</div>
+<section class="carSection">
+    <div>
+        <div class="flex row" style="margin: 5px; width: 100%; display: flex; padding-top: 15px; padding-left: 15px; align-items: center;
+align-content: center;
+justify-content: center;
+justify-items: center;">
+            <form action="searchRastreio" method="post">
+                <span for="codRastreio" style="font-size: 18px;">Informe o código de rastreio:</span>
+                <input type="text" placeholder="Procurar" id="codRastreio" name="codRastreio">
+                <button type="submit"><iconify-icon icon="material-symbols:search-rounded" width="14" height="14"
+                        style="margin: 0px; padding: 0px"></iconify-icon>Buscar</button>
+
+            </form>
+        </div>
+        <hr>
+        <h2 style="align-items: center; text-align: center;">{{msg}}</h2>
+        <table style="width: 100%; border: solid 1px black; border-collapse: collapse;">
+            {{#if orders}}
+
+            <tr style="border-collapse: collapse; border: solid 1px black;">
+                <th scope="col" style="background-color: rgba(255, 255, 255, 0.342); font-size: 18px;">Código</th>
+                <th scope="col" style="background-color: rgba(255, 255, 255, 0.342); font-size: 18px;">Name</th>
+                <th scope="col" style="background-color: rgba(255, 255, 255, 0.342); font-size: 18px;">Data</th>
+            </tr>
+            {{/if}}
+            {{#each orders}}
+            <tr style="border-collapse: collapse; border: solid 1px black;">
+                <th rowspan="9" style="border-collapse: collapse; border: solid 1px black;">{{idPed}}</th>
+            </tr>
+            <tr>
+                <td><span>{{entregue.name}}</span></td>
+                <td><span>{{entregue.data}}</span></td>
+            </tr>
+            <tr>
+                <td><span>{{acaminho.name}}</span></td>
+                <td><span>{{acaminho.data}}</span></td>
+            </tr>
+            <tr>
+                <td><span>{{nadistribuidora.name}}</span></td>
+                <td><span>{{nadistribuidora.data}}</span></td>
+            </tr>
+            <tr>
+                <td><span>{{emtransito.name}}</span></td>
+                <td><span>{{emtransito.data}}</span></td>
+            </tr>
+            <tr>
+                <td><span>{{saiuDestino.name}}</span></td>
+                <td><span>{{saiuDestino.data}}</span></td>
+            </tr>
+            <tr>
+                <td><span>{{embarcado.name}}</span></td>
+                <td><span>{{embarcado.data}}</span></td>
+            </tr>
+            <tr>
+                <td><span>{{preaparaco.name}}</span></td>
+                <td><span>{{preaparaco.data}}</span></td>
+            </tr>
+            <tr>
+                <td><span>{{separacao.name}}</span></td>
+                <td><span>{{separacao.data}}</span></td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+</section>
 {{>footer}}
