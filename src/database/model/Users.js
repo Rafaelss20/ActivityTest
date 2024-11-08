@@ -43,8 +43,8 @@ const users = db.sequelize.define('users', {
 });
 
 // users.findAll().then(() => {
-//         console.log('Tabela usuários existente');
-        // users.sync({ force: true });
+   // users.sync({ force: true });
+//     console.log('Tabela usuários existente');
 // }).catch(() => {
 //     console.log('Tabela Users criada');
 // })
