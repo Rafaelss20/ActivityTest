@@ -1,34 +1,77 @@
-<form action="createUserForm" method="post">
-    <label for="firstName">Nome:</label><br>
-    <input value="{{result.firstName}}" type="text" name="firstName" id="firstName" required><br>
-    <label for="lastName">Sobrenome:</label><br>
-    <input value="{{result.lastName}}" type="text" name="lastName" id="lastName" required><br>
-    <label for="email">Email:</label><br>
-    <input value="{{result.mail}}" type="email" name="email" id="email" placeholder="E-mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br>
-    <li style="color: red;">{{result.mailmsg}}</li>
-    <label for="password">Senha:</label><br>
-    <input value="{{result.password}}" type="password" name="password" id="password" required><br>
-    <li style="color: red;">{{result.number}}</li>
-    <li style="color: red;">{{result.UpperCase}}</li>
-    <li style="color: red;">{{result.LowerCase}}</li>
-    <li style="color: red;">{{result.EightChar}}</li>
-    <label for="confirmPassword">Repita a senha:</label><br>
-    <input value="{{result.confirmPassword}}" type="password" name="confirmPassword" id="confirmPassword" required><br>
-    <li style="color: red;">{{result.verify}}</li>
-    <label for="cpf">CPF:</label><br>
-    <input value="{{result.cpf}}" type="text" name="cpf" id="cpf" placeholder="00000000000" pattern="([0-9]{11})" maxlength="11" required><br>
-    <li style="color: red;">{{result.cpfValid}}</li>
-    <label for="nascimento">Data de nascimento:</label><br>
-    <input value="{{result.nascimento}}" type="date" name="nascimento" id="nascimento" required><br>
-    <label for="numberCard">Número do cartão</label>
-    <input value="{{result.numberCard}}" type="text" name="numberCard" id="numberCard" placeholder="0000-0000-0000-0000" pattern="([0-9]{4})-([0-9]{4})-([0-9]{4})-([0-9]{4})" maxlength="19" required><br>
-    <label for="cvv">Código CVV</label>
-    <input value="{{result.cvv}}" type="text" name="cvv" placeholder="000" pattern="([0-9]{3})" id="cvv" maxlength="3" required><br>
-    <label for="dateValed">Data de Validade</label>
-    <input value="{{result.dateValid}}" type="text" name="dateValed" id="dateValed" placeholder="mm/aa" pattern="([0-1]{1})([0-9]{1})\/([0-9]{2})" maxlength="5" required><br>
-    <br>
-    <a href="/"><button type="button">Voltar</button></a><button type="submit">Enviar</button>
-</form>
-<div>
-    <h1>{{msg}}</h1>
-</div>
+<section class="containerCreate">
+    <form action="createUserForm" method="post">
+        <div class="containerBlockCreate row" style="margin-top: 60px;">
+            <div class="column">
+                <label for="firstName">Nome:</label>
+                <input value="{{result.firstName}}" type="text" name="firstName" id="firstName" required>
+            </div>
+            <div class="column">
+                <label for="lastName">Sobrenome:</label>
+                <input value="{{result.lastName}}" type="text" name="lastName" id="lastName" required>
+            </div>
+        </div>
+        <div class="containerBlockCreate row">
+            <div class="column">
+                <label for="cpf">CPF:</label>
+                <input value="{{result.cpf}}" type="text" name="cpf" id="cpf" placeholder="00000000000"
+                    pattern="([0-9]{11})" maxlength="11" required>
+                <li style="color: red;">{{result.cpfValid}}</li>
+            </div>
+            <div class="column">
+                <label for="email">Email:</label>
+                <input value="{{result.mail}}" type="email" name="email" id="email" placeholder="E-mail"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                <li style="color: red;">{{result.mailmsg}}</li>
+            </div>
+        </div>
+        <div class="containerBlockCreate row senhasCreate">
+            <div class="column">
+                <label for="password">Senha:</label>
+                <input value="{{result.password}}" type="password" name="password" id="password" required>
+                <div>
+                    <li style="color: red;">{{result.number}}</li>
+                    <li style="color: red;">{{result.UpperCase}}</li>
+                    <li style="color: red;">{{result.LowerCase}}</li>
+                    <li style="color: red;">{{result.EightChar}}</li>
+                </div>
+            </div>
+            <div class="column">
+                <label for="confirmPassword">Repita a senha:</label>
+                <input value="{{result.confirmPassword}}" type="password" name="confirmPassword" id="confirmPassword"
+                    required>
+                <li style="color: red;">{{result.verify}}</li>
+            </div>
+        </div>
+        <hr noshade="" size="1px" width="100%">
+        <div class="containerBlockCreate row flex">
+            <div class="column flex">
+                <label for="numberCard">Número do cartão</label>
+                <input value="{{result.numberCard}}" type="text" name="numberCard" id="numberCard"
+                    placeholder="0000000000000000" pattern="([0-9]{16})" maxlength="16" required>
+            </div>
+            <div class="column flex">
+                <label for="cvv">Código CVV</label>
+                <input value="{{result.cvv}}" type="text" name="cvv" placeholder="000" pattern="([0-9]{3})" id="cvv"
+                    maxlength="3" required>
+            </div>
+        </div>
+        <div class="containerBlockCreate row flex">
+            <div class="column">
+                <label for="dateValed">Data de Validade do Cartão</label>
+                <input value="{{result.dateValid}}" type="text" name="dateValed" id="dateValed" placeholder="mm/aa"
+                    pattern="([0-1]{1})([0-9]{1})\/([0-9]{2})" maxlength="5" required><br>
+            </div>
+            <div class="column ">
+                <label for="nascimento">Data de nascimento:</label>
+                <input value="{{result.nascimento}}" type="date" name="nascimento" id="nascimento" required><br>
+            </div>
+        </div>
+        <div class="cotainerButton row">
+            <button class="item flex" type="button"><a href="/">Voltar</a></button><button class="item flex"
+                type="submit">Enviar</button>
+        </div>
+    </form>
+    <div>
+        <h1>{{msg}}</h1>
+    </div>
+</section>

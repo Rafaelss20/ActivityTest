@@ -1,19 +1,32 @@
-<nav class="container row">
+<nav>
     <div class="flex">
-        <a href="/home">Home</a>
+        <a class="ahome" href="/home"
+            style="align-content: center; align-items: center; align-self: center;"><iconify-icon
+                icon="material-symbols:home-rounded" width="30" height="30"
+                style="padding-left: 10px;"></iconify-icon><span>Home</span></a>
     </div>
     <div class="flex">
-        <form class="container-fluid" action="searchProduct" method="post">
-                <input type="text" class="" placeholder="Procurar" aria-label="Username"
-                    aria-describedby="basic-addon1" aria-autocomplete="both" id="searchProduct" name="searchProduct">
-                <button type="submit">🔍</button>
-        </form>
+        <div class="formSearch">
+            <form action="searchProduct" method="post">
+                <input type="text" placeholder="Procurar" id="searchProduct" name="searchProduct"
+                    autocomplete="additional-name" aria-autocomplete="both">
+                <button type="submit"><iconify-icon icon="material-symbols:search-rounded" width="14" height="14"
+                        style="margin: 0px; padding: 0px"></iconify-icon>Buscar</button>
+            </form>
+        </div>
     </div>
-    <div class="flex">
-    <span>{{userAcess}}</span>
-    <a href="/Pedidos">Acompanhar Pedidos</a>
-    <a href="/Carbuy">Carrinho</a>
-    {{!-- <a href="/Config">Configuração</a> --}}
-    <a href="/logout">Sair</a>
+    <div class="containterAcess">
+
+        <a class="ahome" href="">
+            <iconify-icon icon="material-symbols:account-circle" width="30" height="30"></iconify-icon>
+            <span style="margin-top: 2px;">{{userAcess}}</span>
+        </a>
+        <a href="/Pedidos"><iconify-icon icon="material-symbols:shopping-bag-outline" width="30"
+                height="30"></iconify-icon></a>
+        <a href="/Carbuy"><iconify-icon icon="material-symbols:add-shopping-cart" width="30"
+                height="30"></iconify-icon></a>
+        {{!-- <a href="/Config">Configuração</a> --}}
+        <a href="/logout"><iconify-icon icon="material-symbols:logout-rounded" width="30"
+                height="30"></iconify-icon></a>
     </div>
 </nav>
