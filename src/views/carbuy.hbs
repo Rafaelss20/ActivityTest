@@ -1,30 +1,57 @@
 {{>nav}}
-<div>
-    <h1>{{msg}}</h1>
-    {{#each itens}}
-    <div>
-        <h3>{{product.name}}</h3>
-        <img src="/img/Produtos/{{product.img}}" alt="">
-        <p>Descrição: {{product.description}}</p>
-        <input id="valueUnit" class="valueUnit" value="{{product.value}}" disabled="" style="display: none;">
-        <p>Valor uniátio: R$ {{product.value}}</p>
-        <p>Quantidade: <input type="number" class="quantidade" value="{{quantidade}}"></p>
-        <p>SubTotal: R$<i id="subTotal" class="subTotal">{{subTotal}}</i></p>
+<section class="carSection">
+    <div class="flex row">
+        <h1>{{msg}}</h1>
     </div>
+    {{#each itens}}
+    <div class="cardCar">
+        <table style="width: 100%;">
+            <tr>
+                <th colspan="4">
+                    <h3 class="titleProduct">{{product.name}}</h3>
+                </th>
+            </tr>
+            <tr>
+                <th rowspan="3" style="width: 20%;">
+                    <img src="/img/Produtos/{{product.img}}" alt="">
+                </th>
+                <th rowspan="3" style="width: 50%;" class="descriptionProduct">
+                    <p>Descrição: {{product.description}}</p>
+                </th>
+                <td style="width: 30%;" class="saldocar">
+                    <p>Quantidade: <input type="number" class="quantidade" value="{{quantidade}}"></p>
+                </td>
+                <td style="width: 30%;" class="saldocar">
+                    <input id="valueUnit" class="valueUnit" value="{{product.value}}" disabled=""
+                        style="display: none;">
+                </td>
+            </tr>
+        </table>
+        <div class="cotainerButton">
+            <div class="item flex">Valor uniátio: R$ {{product.value}}</div>
+            <div class="item flex">SubTotal: R$<i id="subTotal" class="subTotal">{{subTotal}}</i></p>
+            </div>
+        </div>
+    </div>
+    <hr noshade="" size="2" width="90%">
     {{/each}}
-</div>
+    </div>
+</section>
 {{#if hasIten}}
-<div>
+<div class="pagamento">
+    <hr width="90%" noshade="" size="2px">
     <form action="ComprarProduto" method="post">
-        <h1>Total: R$<i id="totalCompra" name="totalCompra"></i></h1>
-        <input type="text" style="display: none;" id="totaly" name="totaly">
-        <button type="submit">Comprar</button>
+        <div class="cotainerButton aling">
+            <div class="item flex">
+                <i><b style="font-size: 42px;">Total: R$<b id="totalCompra" name="totalCompra" style="font-size: 48px;"></b></b></i>
+            </div>
+            <div class="item flex">
+                <input type="text" style="display: none;" id="totaly" name="totaly">
+                <button type="submit">Comprar</button>
+            </div>
+        </div>
     </form>
-    {{!-- Total: <span value="total()"></span> --}}
 </div>
 {{/if}}
 <script type="text/javaScript" src="/js/totalyCar.js"></script>
 <script type="text/javaScript" src="/js/reload.js"></script>
-{{!--
-<script src="../utils/CarBuy.ts"></script> --}}
-{{!-- {{>footer}} --}}
