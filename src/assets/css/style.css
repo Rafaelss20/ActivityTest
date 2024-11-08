@@ -11,12 +11,53 @@ nav {
     top: 0;
     background-color: #383E40;
     height: 50px;
+    color: #F2F2F2;
+    font-size: 25px;
+    align-items: center;
+    align-self: center;
+    justify-content: space-between;
+    font-size: 18px;
+
+    & a {
+        align-content: center;
+        text-decoration: none;
+        color: #F2F2F2;
+        font-size: 18px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif
+    }
+
+    & .ahome {
+        align-content: center;
+        display: flex;
+        flex: row;
+
+        & span {
+            font-size: 20px;
+        }
+    }
+
+    & input {
+        height: 20px;
+        border-radius: 6px;
+        margin-right: -5px ;
+    }
+
+    .containterAcess {
+        display: flex;
+        justify-content: flex-end;
+
+        & a {
+            flex: 1;
+            padding-right: 15px;
+        }
+    }
 }
 
 body {
     display: flex;
     height: 100vh;
-    background: linear-gradient(to bottom, #F2858E, #F23545);
+    /* background: linear-gradient(to bottom, #F2858E, #F23545); */
+    background: linear-gradient(to bottom, #000, #005);
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -40,7 +81,7 @@ img {
     image-resolution: 100%;
     border: solid 1px black;
     margin-left: 10px;
-    background-color: aliceblue;
+    background-color: none;
 }
 
 label {
@@ -64,11 +105,11 @@ input {
 }
 
 button {
-    background-color: #8C3A3A;
+    background-color: #d64d58;
     color: #fff;
     padding: 10px 20px;
     border: none;
-    border-radius: 3px;
+    border-radius: 6px;
     cursor: pointer;
     flex-grow: 1;
 }
@@ -86,10 +127,18 @@ button {
     flex-direction: row;
     height: 60px;
     justify-content: space-around;
+    margin: 15px;
+
     & button {
+        max-width: 450px;
         text-align: center;
         size: 18px;
         font-style: initial;
+        font-family: Arial, Helvetica, sans-serif;
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 5px;
 
         & a {
             /* background-color: black; */
@@ -99,10 +148,14 @@ button {
             text-decoration: none;
             color: #fff;
             font-weight: bold;
+            padding-left: 15px;
         }
     }
-    & .flex{
-        flex-grow: 1
+
+    & .flex {
+        flex-grow: 1;
+        margin-left: 5px;
+        padding-left: 5px;
     }
 
 }
@@ -129,7 +182,7 @@ button {
 }
 
 .containerLogin {
-    height: 50vh;
+    height: 600px;
     max-width: 550px;
     min-width: 420px;
     display: flex;
@@ -148,7 +201,9 @@ button {
 
 .column {
     min-height: 200px;
+    max-height: 500px;
     flex-direction: column;
+    padding: 5px;
 }
 
 .valueUnit {
@@ -170,4 +225,102 @@ button {
 
 .center {
     align-items: center;
+}
+
+.containerCreate {
+    flex-direction: column;
+    overflow-y: scroll;
+    min-height: 600px;
+    max-height: 800px;
+    max-width: 750px;
+    min-width: 40vw;
+    display: flex;
+    border: 1px solid #ccc;
+    background-color: #F2F2F2;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.514);
+    padding: 15px;
+
+    & label {
+        padding-bottom: 10px;
+    }
+}
+
+.containerBlockCreate {
+    display: flex;
+    margin: 15px;
+    max-width: 800px;
+    margin: 0px;
+    justify-content: space-around;
+    min-height: 50px;
+    max-height: 120px;
+}
+
+.senhasCreate {
+    max-height: 180px;
+}
+
+.formSearch {
+    flex-direction: row;
+
+    & input {
+        padding: 6px;
+        margin: 0px;
+        height: 40px;
+        margin-right: -15px;
+    }
+
+    & button {
+        margin: 0px;
+        padding: 6px;
+        height: 39px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+#searchProduct {
+    height: 10px;
+}
+
+.containerbuy {
+    flex-direction: column;
+    max-height: 800px;
+    max-width: 750px;
+    display: flex;
+    border: 1px solid #ccc;
+    background-color: #F2F2F2;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.514);
+    padding: 25px;
+    & p {
+        align-self: baseline;
+        text-align: start;
+        font-size: 18px;
+    }
+
+    & label {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        padding-bottom: 10px;
+    }
+
+    & h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 25px;
+        & b{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 35px;
+        }
+        & span{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 30px;
+        }
+    }
 }
