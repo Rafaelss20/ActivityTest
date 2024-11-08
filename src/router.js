@@ -44,6 +44,13 @@ router.get("/addCar/:id", (req,res) => {
 router.get('/Buy',(req,res)=>{
     buy.checkout(req,res)
 })
+router.post("/ComprarProduto",(req,res)=>{
+    req.session.totalBuy = req.body.totaly
+    res.redirect('/buy')
+})
+router.post("/finishBuy",(req,res)=>{
+    buy.finishBuy(req,res)
+})
 router.post("/searchRastreio", (req, res) => {
     trackeOrdes.listarpedido(req, res)
 })

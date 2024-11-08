@@ -46,7 +46,7 @@ class App {
             secret: 'secret-key',
             resave: false,
             saveUninitialized: false,
-            cookie: { maxAge: 1 * 10 * 60 * 1000 } // 10 Minutos
+            cookie: { maxAge: 1 * 30 * 60 * 1000 } // 10 Minutos
         }));
     }
     checkSession() {
