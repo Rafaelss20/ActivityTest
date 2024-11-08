@@ -2,10 +2,16 @@
 {{#if sessionCod}}
 <meta http-equiv="refresh" content="1.5; url=/">
 {{/if}}
-<meta http-equiv="refresh" content="2; url=/home">
+{{!-- <meta http-equiv="refresh" content="1.6; url=/home"> --}}
 <h1>{{msg}}</h1>
-<br>
 {{#if carBuy}}
+<meta http-equiv="refresh" content="0.5; url=/home">
+<br>
 <progress />
+{{/if}}
+
+{{#if idBuy}}
+    {{>nav}}
+    <p>Código de Rastreio: {{idCodRastreio}}</p>
 {{/if}}
 </main>

@@ -16,16 +16,16 @@
     <input value="{{result.confirmPassword}}" type="password" name="confirmPassword" id="confirmPassword" required><br>
     <li style="color: red;">{{result.verify}}</li>
     <label for="cpf">CPF:</label><br>
-    <input value="{{result.cpf}}" type="text" name="cpf" id="cpf" placeholder="000.000.000-00" pattern="([0-9]{3}).([0-9]{3}).([0-9]{3})-([0-9]{2})" required><br>
+    <input value="{{result.cpf}}" type="text" name="cpf" id="cpf" placeholder="00000000000" pattern="([0-9]{11})" maxlength="11" required><br>
     <li style="color: red;">{{result.cpfValid}}</li>
     <label for="nascimento">Data de nascimento:</label><br>
     <input value="{{result.nascimento}}" type="date" name="nascimento" id="nascimento" required><br>
     <label for="numberCard">Número do cartão</label>
-    <input value="{{result.numberCard}}" type="text" name="numberCard" id="numberCard" placeholder="0000000000000000" pattern="([0-9]{16})" required><br>
+    <input value="{{result.numberCard}}" type="text" name="numberCard" id="numberCard" placeholder="0000-0000-0000-0000" pattern="([0-9]{4})-([0-9]{4})-([0-9]{4})-([0-9]{4})" maxlength="19" required><br>
     <label for="cvv">Código CVV</label>
-    <input value="{{result.cvv}}" type="text" name="cvv" placeholder="xxx" pattern="([0-9]{3})" id="cvv" required><br>
+    <input value="{{result.cvv}}" type="text" name="cvv" placeholder="000" pattern="([0-9]{3})" id="cvv" maxlength="3" required><br>
     <label for="dateValed">Data de Validade</label>
-    <input value="{{result.dateValid}}" type="text" name="dateValed" id="dateValed" placeholder="mm/aa" pattern="([0-1]{1})([0-9]{1})\/([0-9]{2})" required><br>
+    <input value="{{result.dateValid}}" type="text" name="dateValed" id="dateValed" placeholder="mm/aa" pattern="([0-1]{1})([0-9]{1})\/([0-9]{2})" maxlength="5" required><br>
     <br>
     <a href="/"><button type="button">Voltar</button></a><button type="submit">Enviar</button>
 </form>
