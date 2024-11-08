@@ -22,3 +22,8 @@ img{
 .column{
     flex-direction: column;
 }
+.valueUnit{
+    background-color: none;
+    border: none;
+    width: 100px;
+}
