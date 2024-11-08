@@ -39,7 +39,7 @@ nav {
     & input {
         height: 20px;
         border-radius: 6px;
-        margin-right: -5px ;
+        margin-right: -5px;
     }
 
     .containterAcess {
@@ -161,11 +161,11 @@ button {
 }
 
 .homeSection {
-    position: relative;
-    top: 80px;
+    position: fixed;
+    top: 60px;
     bottom: 60px;
     overflow-y: scroll;
-    height: 100%;
+    height: 90vh;
     max-width: 550px;
     min-width: 150vh;
     background-color: #f2f2f271;
@@ -175,10 +175,75 @@ button {
 }
 
 .cardProduct {
-    background-color: aliceblue;
-    margin: 5px 10% 5px 10%;
-    border-radius: 15px;
-    max-height: 150px;
+    display: flex;
+    background-color: #F2D8D8;
+    margin: 5px 5px 5px 5px;
+    border-radius: 5px;
+
+    && img {
+        height: 200px;
+        width: 200px;
+        border: none;
+        background: #ccccccb0;
+        margin: 3px;
+    }
+
+    && .descriptionProduct {
+        display: flex;
+        justify-content: flex-start;
+        text-align: start;
+        align-items: stretch;
+        align-self: flex-start;
+
+        && p {
+            width: 100%;
+            font-size: 22px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-style: normal;
+        }
+    }
+
+    && .titleProduct {
+        padding: 0px;
+        margin: 5px 0px 2px 5px;
+        font-size: 32px;
+        text-align: start;
+        padding-left: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: normal;
+    }
+
+    && tr {
+        display: flex;
+    }
+
+    && td {
+        display: flex;
+    }
+
+    .buttoncar {
+        align-content: center;
+        align-items: flex-end;
+        justify-content: center;
+
+        && a {
+            height: 100%;
+            width: 100%;
+            padding: 5px 20px;
+        }
+    }
+
+    .saldocar{
+        align-content: start;
+        align-items: flex-end;
+        justify-content: center;
+        text-align: start;
+        & span{
+            font-size: 22px;
+            text-align: start;
+        }
+
+    }
 }
 
 .containerLogin {
@@ -299,6 +364,7 @@ button {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.514);
     padding: 25px;
+
     & p {
         align-self: baseline;
         text-align: start;
@@ -314,11 +380,13 @@ button {
     & h1 {
         font-family: Arial, Helvetica, sans-serif;
         font-size: 25px;
-        & b{
+
+        & b {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 35px;
         }
-        & span{
+
+        & span {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 30px;
         }
