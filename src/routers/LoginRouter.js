@@ -1,4 +1,6 @@
 const users = require("../database/model/Users");
+const { createBag } = require("../utils/CarBuyFunctions");
+const { verificarEmailExiste } = require("../utils/CreateUserFunctions");
 
 class Authentication {
     constructor() {
@@ -12,16 +14,12 @@ class Authentication {
                 req.session.name = result.firstName
                 req.session.isLoggedIn = true;
                 req.session.save()
+                createBag()
                 res.redirect('/home')
             } else {
-                res.render('login', { msg: '• E-mail/Senha incorretos!' })
+                return verificarEmailExiste(req.body.email)? res.render('login', { msg: '• E-mail/Senha incorretos!' }) : res.render('login', { msg: 'Não há cadastro' })
             }
         })
-    }
-    async redirectLogin() {
-        router.get("/", (req, res) => {
-            res.render('login')
-        });
     }
 }
 module.exports = Authentication

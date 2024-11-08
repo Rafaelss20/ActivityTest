@@ -15,10 +15,5 @@ const bag = db.sequelize.define('bags',{
         type: db.Sequelize.JSON
     }
 })
-bag.findAll().then(()=>{
-    console.log('Tabela bag existente')
-}).catch(()=>{
-    bag.sync({force: true})
-})
 
 module.exports = bag

@@ -37,15 +37,15 @@ const users = db.sequelize.define('users', {
     cpf: {
         type: db.Sequelize.STRING
     },
-    saldo:{
-        type:db.Sequelize.INTEGER
+    balance: {
+        type: db.Sequelize.STRING
     }
 });
 
-users.findAll().then(()=>{
-    console.log('Tabela usuários existente');
-}).catch(()=>{
-    users.sync({ force: true });
-    console.log('Tabela Users criada');
-})
+// users.findAll().then(() => {
+//     users.sync({ force: true });
+//     console.log('Tabela usuários existente');
+// }).catch(() => {
+//     console.log('Tabela Users criada');
+// })
 module.exports = users;

@@ -10,7 +10,9 @@ async function verifiqueProduto(params) {
         throw error; // Relança o erro para tratamento adicional
     }
 }
-
+async function createBag(){
+    await bag.sync({force: true})
+}
 async function cleanBag() {
     await db.sequelize.query('DELETE FROM bags').then(() => {
         return console.log('Bag limpa')
@@ -18,4 +20,4 @@ async function cleanBag() {
         return console.log(`Error: ${Error}`)
     })
 }
-module.exports = {verifiqueProduto, cleanBag}
+module.exports = {verifiqueProduto, cleanBag, createBag}

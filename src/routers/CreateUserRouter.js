@@ -49,7 +49,7 @@ class CreateUser {
         if (isPassword) {
             const user = await new monthyUser(firstName, lastName, email, password, cpf, nascimento, numberCard, cvv, dateValed);
             user.create()
-            return res.render("createUser", { msg: 'Cadastrado com sucesso' });
+            return res.render("sucessfull", { msg: 'Cadastrado com sucesso' });
         }
         else {
             return res.render('createUser', { result: result });

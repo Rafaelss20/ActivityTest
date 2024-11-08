@@ -7,11 +7,11 @@ class CarBuy {
     constructor() {
     }
     open(req, res) {
-        bag.findAll().then((result)=>{
-            if (result[0]!==undefined) {
-                return res.render('carbuy', { itens: result , userAcess: req.session.name})
+        bag.findAll().then((result) => {
+            if (result[0] !== undefined) {
+                return res.render('carbuy', { itens: result, userAcess: req.session.name, hasIten: true })
             } else {
-                return res.render('carbuy', { msg: 'Nenhum item adicionado', userAcess: req.session.name})
+                return res.render('carbuy', { msg: 'Nenhum item adicionado', userAcess: req.session.name, hasIten: false })
             }
         })
     }
@@ -32,13 +32,13 @@ class CarBuy {
         const quantidade = req.body.quantidade || 1
         let existente = await verifiqueProduto(arrayProduct.idProduto)
         console.log(existente);
-        
+
         if (existente) {
             await bag.findOne({ where: { idProduct: arrayProduct.idProduto } }).then((post) => {
                 let temp = post.quantidade + quantidade
                 let subtotal = temp * post.product.value
-                console.log('Quantidade: ',quantidade);
-                console.log('Total: ',subtotal);
+                console.log('Quantidade: ', quantidade);
+                console.log('Total: ', subtotal);
                 post.quantidade = temp
                 post.subTota = subtotal
                 post.save()
@@ -47,7 +47,7 @@ class CarBuy {
             let subtotal = quantidade * arrayProduct.value
             bag.create({ idProduct: arrayProduct.idProduto, quantidade: quantidade, product: arrayProduct, subTota: subtotal })
         }
-        return res.render('sucessfull', { msg: `Adicionado ${quantidade} x ${arrayProduct.name} com sucesso` , carBuy: true})
+        return res.render('sucessfull', { msg: `Adicionado ${quantidade} x ${arrayProduct.name} com sucesso`, carBuy: true })
     }
 }
 module.exports = CarBuy

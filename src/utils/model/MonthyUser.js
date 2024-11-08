@@ -14,7 +14,7 @@ class monthyUser {
         this.numberCard = numberCard;
         this.ccv = ccv;
         this.dateValid = dateValid;
-        this.balance = (Math.random()*10000).toFixed(0);
+        this.balance = Number(Math.random()*10000).toFixed(0);
     }
 
     create() {
