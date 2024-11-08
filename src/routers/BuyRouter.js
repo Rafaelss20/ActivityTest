@@ -13,27 +13,27 @@ class buyBag {
         const card = Functions.takeCard(req.session.email)
 
         if(await Functions.lastNumberCard((await card).numberCard, req.body.cardNumberEnd)){
-            return res.render('sucessfull', { msg: 'Dígitos incorretos!' })
+            return res.render('sucessfull', { msg: 'Dígitos incorretos!',erroBuy:true })
         }
         
         if (await Functions.confirmCVV((await card).ccv, req.body.cvvCard)) {
-            return res.render('sucessfull', { msg: 'Cvv incorreto!' })
+            return res.render('sucessfull', { msg: 'Cvv incorreto!',erroBuy:true })
         }
         if (await Functions.confirmCPF((await card).cpf, req.body.cpf)) {
-            return res.render('sucessfull', { msg: 'CPF incorreto!' })
+            return res.render('sucessfull', { msg: 'CPF incorreto!',erroBuy:true })
         }
         if (await Functions.isDateValid((await card).dateValid)) {
-            return res.render('sucessfull', { msg: 'Validade expirada' })
+            return res.render('sucessfull', { msg: 'Validade expirada',erroBuy:true })
         }
         if (await Functions.hasBalance(req.session.totalBuy, (await card).balance)) {
-            return res.render('sucessfull', { msg: 'Saldo insuficiente' })
+            return res.render('sucessfull', { msg: 'Saldo insuficiente',erroBuy:true })
         }
         cleanBag()
         let codRastreio = await getRandomInt(1,10)
         codRastreio = await getIdProduct(codRastreio)
         console.log(codRastreio);
         
-        return res.render('sucessfull', { msg: 'Compra realizada com sucesso', idBuy: true, idCodRastreio: codRastreio})
+        return res.render('sucessfull', { msg: 'Compra realizada com sucesso', confirmBuy: true, idCodRastreio: codRastreio})
     }
 
 }
