@@ -394,13 +394,17 @@ button {
 }
 
 .containerSucessfull {
+    align-content: center;
+    align-items: center;
+   
+    display: flex;
     align-self: start;
     flex-direction: column;
+    justify-content: center;
     min-height: 600px;
     max-height: 800px;
     max-width: 750px;
     min-width: 40vw;
-    display: flex;
     border: 1px solid #ccc;
     background-color: #F2F2F2;
     align-items: center;
