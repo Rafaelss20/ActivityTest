@@ -1,6 +1,6 @@
-<section class="containerCreate" >
+<div class="containerCreate">
     <form action="createUserForm" method="post">
-        <div class="containerBlockCreate row" style="margin-top: 80px;">
+        <div class="containerBlockCreate row">
             <div class="column">
                 <label for="firstName">Nome:</label>
                 <input value="{{result.firstName}}" type="text" name="firstName" id="firstName" required>
@@ -70,8 +70,8 @@
             <button class="item flex" type="button"><a href="/">Voltar</a></button><button class="item flex"
                 type="submit">Enviar</button>
         </div>
-    </form>
     <div>
         <h1>{{msg}}</h1>
     </div>
-</section>
+    </form>
+</div>

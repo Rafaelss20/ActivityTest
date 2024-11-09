@@ -19,7 +19,8 @@
                     <p>Descrição: {{product.description}}</p>
                 </th>
                 <td style="width: 30%;" class="saldocar">
-                    <p>Quantidade: <input type="number" class="quantidade" value="{{quantidade}}"></p>
+                    <p>Quantidade: <input type="number" class="quantidade" value="{{quantidade}}"
+                            style="overflow: none;"></p>
                 </td>
                 <td style="width: 30%;" class="saldocar">
                     <input id="valueUnit" class="valueUnit" value="{{product.value}}" disabled=""
@@ -39,19 +40,19 @@
 </section>
 {{#if hasIten}}
 <div class="pagamento">
-    <hr width="90%" noshade="" size="2px">
     <form action="ComprarProduto" method="post">
         <div class="cotainerButton aling">
             <div class="item flex">
-                <i><b style="font-size: 42px;">Total: R$<b id="totalCompra" name="totalCompra" style="font-size: 48px;"></b></b></i>
+                <i><b style="font-size: 42px;">Total: R$<b id="totalCompra" name="totalCompra"
+                            style="font-size: 48px;"></b></b></i>
             </div>
             <div class="item flex">
-                <input type="text" style="display: none;" id="totaly" name="totaly">
-                <button type="submit">Comprar</button>
+                <button class="item flex" type="submit" style="padding: 2px 8px;">Comprar</button>
             </div>
         </div>
     </form>
 </div>
+<input type="text" style="display: none;" id="totaly" name="totaly">
 {{/if}}
 <script type="text/javaScript" src="/js/totalyCar.js"></script>
 <script type="text/javaScript" src="/js/reload.js"></script>

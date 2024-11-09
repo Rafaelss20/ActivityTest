@@ -154,11 +154,11 @@ button {
 .homeSection {
     position: fixed;
     top: 60px;
-    bottom: 60px;
-    overflow-y: scroll;
+    bottom: 50px;
+    overflow-y: auto;
     height: 90vh;
     max-width: 550px;
-    min-width: 150vh;
+    min-width: 80vw;
     background-color: #f2f2f271;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -166,17 +166,18 @@ button {
 }
 
 .carSection {
+    display: block;
     position: fixed;
     top: 80px;
-    bottom: 60px;
-    overflow-y: scroll;
-    height: 80vh;
+    bottom: 90px;
+    overflow-y: auto;
+    max-height: 80vh;
     max-width: 550px;
-    min-width: 150vh;
+    min-width: 80vw;
     background-color: #F2D8D8;
-    border-radius: 5px;
+    border-radius: 5px 5px 0px 0px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-
+    padding: 10px;
     & h1 {
         font-family: Arial, Helvetica, sans-serif;
         font-size: 40px;
@@ -184,7 +185,10 @@ button {
     }
 
 }
-
+.item {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
 .cardProduct {
     display: flex;
     background-color: #F2D8D8;
@@ -259,13 +263,13 @@ button {
 }
 .pagamento{
     position: fixed;
-    bottom: 5px;
-    bottom: 60px;
+    bottom: 10px;
+    height: 70px;
     max-width: 550px;
-    min-width: 150vh;
+    min-width: 80vw;
     background-color: #F2D8D8;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 0px 0px 5px 5px;
+    padding: 0px 10px 10px 10px;
  
 }
 .cardCar {
@@ -406,13 +410,12 @@ button {
 }
 
 .containerCreate {
+    display: block;
     flex-direction: column;
-    overflow-y: scroll;
-    min-height: 600px;
-    max-height: 800px;
+    overflow-y: auto;
+    max-height: 90vh;
     max-width: 750px;
     min-width: 40vw;
-    display: flex;
     border: 1px solid #ccc;
     background-color: #F2F2F2;
     justify-content: center;
@@ -421,24 +424,20 @@ button {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.514);
     padding: 15px;
-
     & label {
         padding-bottom: 10px;
     }
 }
-
 .containerBlockCreate {
     display: flex;
-    margin: 15px;
     max-width: 800px;
-    margin: 0px;
     justify-content: space-around;
-    min-height: 50px;
-    max-height: 120px;
+    max-height: 110px;
 }
 
 .senhasCreate {
     max-height: 180px;
+
 }
 
 .formSearch {
@@ -465,10 +464,13 @@ button {
 }
 
 .containerbuy {
+    display: block;
     flex-direction: column;
-    max-height: 800px;
+    margin-top: 60px;
+    overflow-y: auto;
+    min-height: 60vh;
+    max-height: 80vh;
     max-width: 750px;
-    display: flex;
     border: 1px solid #ccc;
     background-color: #F2F2F2;
     justify-content: center;
@@ -476,7 +478,7 @@ button {
     align-items: center;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.514);
-    padding: 25px;
+    padding: 15px 25px;
 
     & p {
         align-self: baseline;
@@ -505,17 +507,18 @@ button {
         }
     }
 }
-
+.container{
+    margin: 10px;
+}
 .containerSucessfull {
     align-content: center;
     align-items: center;
-
     display: flex;
     align-self: start;
     flex-direction: column;
     justify-content: center;
-    min-height: 600px;
-    max-height: 800px;
+    min-height: 60vh;
+    max-height: 90vh;
     max-width: 750px;
     min-width: 40vw;
     border: 1px solid #ccc;

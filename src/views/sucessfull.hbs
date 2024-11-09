@@ -1,27 +1,30 @@
 <section class="container">
-<main class="containerSucessfull">
-    <h1>{{msg}}</h1>
-    {{#if sessionCod}}
-    <meta http-equiv="refresh" content="1.5; url=/">
-    <iconify-icon icon="line-md:close-circle-filled" width="298" height="298"  style="color: #a02727"></iconify-icon>
-    {{/if}}
-    {{#if codCreate}}
-    <meta http-equiv="refresh" content="1.6; url=/home">
-    <iconify-icon icon="line-md:cloud-alt-upload-filled-loop" width="298" height="298"  style="color: #51aa4b"></iconify-icon>
-    {{/if}}
-    {{#if carBuy}}
-    <meta http-equiv="refresh" content="2; url=/home">
-    <iconify-icon icon="line-md:confirm-circle-filled" width="298" height="298"  style="color: #51aa4b"></iconify-icon>
-    {{/if}}
-    {{#if erroBuy}}
-    <meta http-equiv="refresh" content="1; url=/Buy">
-    <iconify-icon icon="line-md:close-circle-filled" width="298" height="298"  style="color: #a02727"></iconify-icon>
-    {{/if}}
-    {{#if confirmBuy}}
-    {{>nav}}
-    <iconify-icon icon="line-md:confirm-circle-filled" width="298" height="298"  style="color: #51aa4b"></iconify-icon>
-    <p style="font-size: 22px;"><b style="font-size: 22px;">Código de Rastreio:</b> Teste{{idCodRastreio}}</p>
-    {{/if}}
-    
-</main>
+    <main class="containerSucessfull">
+        <h1>{{msg}}</h1>
+        {{#if sessionCod}}
+        <meta http-equiv="refresh" content="1.5; url=/">
+        <iconify-icon icon="line-md:close-circle-filled" width="298" height="298" style="color: #a02727"></iconify-icon>
+        {{/if}}
+        {{#if codCreate}}
+        <meta http-equiv="refresh" content="1.6; url=/">
+        <iconify-icon icon="line-md:cloud-alt-upload-filled-loop" width="298" height="298"
+            style="color: #51aa4b"></iconify-icon>
+        {{/if}}
+        {{#if carBuy}}
+        <meta http-equiv="refresh" content="2; url=/home">
+        <iconify-icon icon="line-md:confirm-circle-filled" width="298" height="298"
+            style="color: #51aa4b"></iconify-icon>
+        {{/if}}
+        {{#if erroBuy}}
+        <meta http-equiv="refresh" content="1; url=/Buy">
+        <iconify-icon icon="line-md:close-circle-filled" width="298" height="298" style="color: #a02727"></iconify-icon>
+        {{/if}}
+        {{#if confirmBuy}}
+        {{>nav}}
+        <iconify-icon icon="line-md:confirm-circle-filled" width="298" height="298"
+            style="color: #51aa4b"></iconify-icon>
+        <p style="font-size: 22px;"><b style="font-size: 22px;">Código de Rastreio:</b>{{idCodRastreio}}</p>
+        {{/if}}
+
+    </main>
 </section>
