@@ -35,10 +35,6 @@ nav {
             font-size: 20px;
         }
     }
-align-items: center;
-align-content: center;
-justify-content: center;
-justify-items: center;
     & input {
         height: 20px;
         border-radius: 6px;
@@ -116,14 +112,6 @@ button {
     cursor: pointer;
     flex-grow: 1;
 }
-
-/* button a {
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    size: 25px;
-    text-decoration: none;
-} */
 
 .cotainerButton {
     display: flex;

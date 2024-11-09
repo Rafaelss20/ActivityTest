@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="4.357" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2024-11-09T14:30:07" tests="0" file="cypress\e2e\AcompanhamentoPedido.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="ActivityTest - Testando acompanhamento de pedido" timestamp="2024-11-09T14:30:07" tests="2" time="4.354" failures="0">
+    <testcase name="ActivityTest - Testando acompanhamento de pedido Testando acompanhamento de pedido" time="2.106" classname="Testando acompanhamento de pedido">
+    </testcase>
+    <testcase name="ActivityTest - Testando acompanhamento de pedido Testando acompanhamento de pedido com código inválido" time="1.063" classname="Testando acompanhamento de pedido com código inválido">
+    </testcase>
+  </testsuite>
+</testsuites>

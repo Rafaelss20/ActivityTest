@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="26.023" tests="10" failures="1">
+  <testsuite name="Root Suite" timestamp="2024-11-09T14:30:18" tests="0" file="cypress\e2e\E2E.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="ActivityTest - Testando formulário de cadastro" timestamp="2024-11-09T14:30:18" tests="3" time="12.573" failures="1">
+    <testcase name="ActivityTest - Testando formulário de cadastro Testando formulário de cadastro" time="0.000" classname="Testando formulário de cadastro">
+      <failure message="Timed out retrying after 4000ms: expected &apos;&lt;h1&gt;&apos; to be &apos;visible&apos;
+
+This element `&lt;h1&gt;` is not visible because it has an effective width and height of: `0 x 0` pixels." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: expected '<h1>' to be 'visible'
+
+This element `<h1>` is not visible because it has an effective width and height of: `0 x 0` pixels.
+    at Context.eval (webpack://express-typescript/./cypress/e2e/E2E.cy.js:15:21)]]></failure>
+    </testcase>
+    <testcase name="ActivityTest - Testando formulário de cadastro Testando formulário de cadastro com senha incorreta" time="2.402" classname="Testando formulário de cadastro com senha incorreta">
+    </testcase>
+    <testcase name="ActivityTest - Testando formulário de cadastro Testando formulário de cadastro com email já cadastrado" time="2.436" classname="Testando formulário de cadastro com email já cadastrado">
+    </testcase>
+  </testsuite>
+  <testsuite name="ActivityTest - Testando login" timestamp="2024-11-09T14:30:30" tests="2" time="1.352" failures="0">
+    <testcase name="ActivityTest - Testando login Testando login" time="0.703" classname="Testando login">
+    </testcase>
+    <testcase name="ActivityTest - Testando login Testando login com email ou senha incorretos" time="0.614" classname="Testando login com email ou senha incorretos">
+    </testcase>
+  </testsuite>
+  <testsuite name="ActivityTest - Testando procura por produto" timestamp="2024-11-09T14:30:32" tests="1" time="1.364" failures="0">
+    <testcase name="ActivityTest - Testando procura por produto Testando procura por produtos" time="1.338" classname="Testando procura por produtos">
+    </testcase>
+  </testsuite>
+  <testsuite name="ActivityTest - Testando adicionar ao carrinho" timestamp="2024-11-09T14:30:33" tests="1" time="3.863" failures="0">
+    <testcase name="ActivityTest - Testando adicionar ao carrinho Testando adicionar ao carrinho" time="3.833" classname="Testando adicionar ao carrinho">
+    </testcase>
+  </testsuite>
+  <testsuite name="ActivityTest - Testando acompanhamento de pedido" timestamp="2024-11-09T14:30:37" tests="2" time="2.160" failures="0">
+    <testcase name="ActivityTest - Testando acompanhamento de pedido Testando acompanhamento de pedido" time="1.097" classname="Testando acompanhamento de pedido">
+    </testcase>
+    <testcase name="ActivityTest - Testando acompanhamento de pedido Testando acompanhamento de pedido com código inválido" time="1.017" classname="Testando acompanhamento de pedido com código inválido">
+    </testcase>
+  </testsuite>
+  <testsuite name="ActivityTest - Realizar compra" timestamp="2024-11-09T14:30:39" tests="1" time="4.707" failures="0">
+    <testcase name="ActivityTest - Realizar compra Testando realização de compra" time="4.666" classname="Testando realização de compra">
+    </testcase>
+  </testsuite>
+</testsuites>

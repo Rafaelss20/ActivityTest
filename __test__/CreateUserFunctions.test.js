@@ -1,17 +1,17 @@
-const {veriftPassword, hasNumber, hasUpperCase, hasLowerCase, hasEightChar, validateEmail, verificarEmailExiste} =  require ('../src/utils/CreateUserFunctions')
+const { veriftPassword, hasNumber, hasUpperCase, hasLowerCase, hasEightChar, validateEmail, verificarEmailExiste } = require('../src/utils/CreateUserFunctions')
 
-describe ("Testing function veriftPassword", () => {
+describe("Testing function veriftPassword", () => {
     it("Check if password is the same passwordConfirmation", () => {
-        expect(veriftPassword ('123', '123')).toBe(true)
+        expect(veriftPassword('123', '123')).toBe(true)
     })
     it("Check if password is the same passwordConfirmation", () => {
-        expect(veriftPassword("12345678","abc")).toBe(false)
+        expect(veriftPassword("12345678", "abc")).toBe(false)
     })
 })
 
-describe ("Testing function hasNumber",() =>{
+describe("Testing function hasNumber", () => {
     it("Check if password has number", () => {
-        expect(hasNumber ('abc123')).toBe(true)
+        expect(hasNumber('abc123')).toBe(true)
     })
     it("Check if password has number", () => {
         expect(hasNumber("abc")).toBe(false)
@@ -20,7 +20,7 @@ describe ("Testing function hasNumber",() =>{
 
 describe("Testing function hasUpperCase", () => {
     it("Check if password has upper case", () => {
-        expect(hasUpperCase ("ABC")).toBe(true)
+        expect(hasUpperCase("ABC")).toBe(true)
     })
     it('Check if passsword has upper case', () => {
         expect(hasUpperCase("Abc")).toBe(true)
@@ -30,7 +30,7 @@ describe("Testing function hasUpperCase", () => {
     })
 })
 
-describe ("Testing function hasLowerCase", () => {
+describe("Testing function hasLowerCase", () => {
     it("Check if password has lower case", () => {
         expect(hasLowerCase('abc')).toBe(true)
     })
@@ -42,7 +42,7 @@ describe ("Testing function hasLowerCase", () => {
     })
 })
 
-describe ("Testing function hasEightChar", () => {
+describe("Testing function hasEightChar", () => {
     it("Check if password has at least eight characters", () => {
         expect(hasEightChar('12345678')).toBe(true)
     })
@@ -54,7 +54,7 @@ describe ("Testing function hasEightChar", () => {
     })
 })
 
-describe ("Testing function validateEmail", () => {
+describe("Testing function validateEmail", () => {
     it("Check email validation", () => {
         expect(validateEmail('rafael@mail.com')).toBe(true)
     })
@@ -64,12 +64,12 @@ describe ("Testing function validateEmail", () => {
 })
 
 describe("Testing function verificarEmailExiste", () => {
-   it("Check if email exists", async () => {
-    const result = await verificarEmailExiste ('rafael@gmail.com')
-    expect(result).toBe(true)
+    it("Check if email exists", async () => {
+        const result = await verificarEmailExiste('joao@email.com')
+        expect(result).toBe(true)
     })
     it("Check if email exists", async () => {
-        const result = await verificarEmailExiste ('email@email.com')
+        const result = await verificarEmailExiste('email@email.com')
         expect(result).toBe(false)
-        })
+    })
 })

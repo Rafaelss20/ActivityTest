@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="12.710" tests="3" failures="1">
+  <testsuite name="Root Suite" timestamp="2024-11-09T14:30:45" tests="0" file="cypress\e2e\Formulario.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="ActivityTest - Testando formulário de cadastro" timestamp="2024-11-09T14:30:45" tests="3" time="12.707" failures="1">
+    <testcase name="ActivityTest - Testando formulário de cadastro Testando formulário de cadastro" time="0.000" classname="Testando formulário de cadastro">
+      <failure message="Timed out retrying after 4000ms: expected &apos;&lt;h1&gt;&apos; to be &apos;visible&apos;
+
+This element `&lt;h1&gt;` is not visible because it has an effective width and height of: `0 x 0` pixels." type="AssertionError"><![CDATA[AssertionError: Timed out retrying after 4000ms: expected '<h1>' to be 'visible'
+
+This element `<h1>` is not visible because it has an effective width and height of: `0 x 0` pixels.
+    at Context.eval (webpack://express-typescript/./cypress/e2e/Formulario.cy.js:17:17)]]></failure>
+    </testcase>
+    <testcase name="ActivityTest - Testando formulário de cadastro Testando formulário de cadastro com senha incorreta" time="2.391" classname="Testando formulário de cadastro com senha incorreta">
+    </testcase>
+    <testcase name="ActivityTest - Testando formulário de cadastro Testando formulário de cadastro com email já cadastrado" time="2.430" classname="Testando formulário de cadastro com email já cadastrado">
+    </testcase>
+  </testsuite>
+</testsuites>

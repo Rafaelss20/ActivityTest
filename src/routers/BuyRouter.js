@@ -22,7 +22,7 @@ class buyBag {
         if (await Functions.confirmCPF((await card).cpf, req.body.cpf)) {
             return res.render('sucessfull', { msg: 'CPF incorreto!',erroBuy:true })
         }
-        if (await Functions.isDateValid((await card).dateValid)) {
+        if (!await Functions.isDateValid((await card).dateValid)) {
             return res.render('sucessfull', { msg: 'Validade expirada',erroBuy:true })
         }
         if (await Functions.hasBalance(req.session.totalBuy, (await card).balance)) {
