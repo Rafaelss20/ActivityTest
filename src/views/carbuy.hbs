@@ -18,11 +18,11 @@
                 <th rowspan="3" style="width: 50%;" class="descriptionProduct">
                     <p>Descrição: {{product.description}}</p>
                 </th>
-                <td style="width: 30%;" class="saldocar">
+                <td class="saldocar">
                     <p>Quantidade: <input type="number" class="quantidade" value="{{quantidade}}"
                             style="overflow: none;"></p>
                 </td>
-                <td style="width: 30%;" class="saldocar">
+                <td class="saldocar">
                     <input id="valueUnit" class="valueUnit" value="{{product.value}}" disabled=""
                         style="display: none;">
                 </td>
@@ -43,16 +43,16 @@
     <form action="ComprarProduto" method="post">
         <div class="cotainerButton aling">
             <div class="item flex">
-                <i><b style="font-size: 42px;">Total: R$<b id="totalCompra" name="totalCompra"
-                            style="font-size: 48px;"></b></b></i>
+                <i><b style="font-size: 32px;">Total: R$<b id="totalCompra" name="totalCompra"
+                            style="font-size: 32px; font-family: Arial, Helvetica, sans-serif"></b></b></i>
             </div>
             <div class="item flex">
+                <input type="text" style="display: none;" id="totaly" name="totaly">
                 <button class="item flex" type="submit" style="padding: 2px 8px;">Comprar</button>
             </div>
         </div>
     </form>
 </div>
-<input type="text" style="display: none;" id="totaly" name="totaly">
 {{/if}}
 <script type="text/javaScript" src="/js/totalyCar.js"></script>
 <script type="text/javaScript" src="/js/reload.js"></script>
